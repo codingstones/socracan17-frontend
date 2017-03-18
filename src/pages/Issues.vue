@@ -4,9 +4,6 @@
       <div class="title">
         <h1><a><i class="icon ss-reply" title="Volver"></i></a>&nbsp;{{ msg }}</h1>
       </div>
-      <div class="user-avatar"
-           style="background-image:url(./assets/img/avatar.png);">
-      </div>
       <div class="actions">
         <button class="button" @click="retrieveIssues">
           Recargar Asuntos
@@ -48,7 +45,7 @@
         </div>
 
         <div v-if="noResults" class="issue-list__message">No hay resultados</div>
-        <div v-if="isLoading" class="issue-list__message">CARGANDO</div>
+        <spinner></spinner>
         <div v-if="error" class="issue-list__message">{{error}}</div>
 
       </div>
@@ -61,11 +58,13 @@
 </template>
 
 <script>
-
   import * as Vuex from 'vuex';
+  import Spinner from '../components/Spinner';
+
 
   export default {
     name: 'issues',
+    components: { Spinner },
     data() {
       return {
         msg: 'Welcome to Conecta-Vue11',
