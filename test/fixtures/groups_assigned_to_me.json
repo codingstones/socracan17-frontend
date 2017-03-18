@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "A GROUP",
+    "new": 10,
+    "open": 10,
+    "waiting": 10,
+    "closed": 10,
+    "pending": null,
+    "total": 40
+  },
+  {
+    "id": 2,
+    "name": "ANOTHER GROUP",
+    "new": 20,
+    "open": 20,
+    "waiting": 20,
+    "closed": 20,
+    "pending": 20,
+    "total": 100
+  }
+]

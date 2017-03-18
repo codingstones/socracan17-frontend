@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import jQuery from 'jquery';
 import Vue from 'vue';
-import App from './App';
+import App from '../src/App';
 import router from './router';
 
 window.jQuery = jQuery;

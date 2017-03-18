@@ -1,8 +1,8 @@
 {
-  "name": "vue-fondation-w2",
+  "name": "vue-foundation-vuex",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Tommaso Marcelli <tommaso.marcelli@gmail.com>",
+  "description": "Testing vue-foundation and Vuex",
+  "author": "Alberto Gualis <alberto.gualis@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -11,7 +11,8 @@
     "upgrade": "npm run upgrade:rm && npm run upgrade:ncu && npm run upgrade:npm-install",
     "upgrade:rm": "rm node_modules -Rf",
     "upgrade:ncu": "npm-check-updates --upgradeAll",
-    "upgrade:npm-install": "npm install"
+    "upgrade:npm-install": "npm install",
+    "unit": "mocha --compilers js:babel-register --require babel-polyfill --recursive src"
   },
   "dependencies": {
     "foundation-sites": "^6.3.1",
@@ -27,9 +28,13 @@
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.4.0",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.2.1",
+    "babel-preset-es2015": "^6.24.0",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.24.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
     "chalk": "^1.1.3",
     "connect-history-api-fallback": "^1.3.0",
     "css-loader": "^0.27.3",
@@ -48,6 +53,7 @@
     "function-bind": "^1.1.0",
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.4",
+    "mocha": "^3.2.0",
     "node-sass": "^4.5.0",
     "npm-check-updates": "^2.10.3",
     "opn": "^4.0.2",
@@ -57,6 +63,9 @@
     "script-loader": "^0.7.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.7",
+    "sinon": "^2.0.0",
+    "sinon-chai": "^2.8.0",
+    "sinon-stub-promise": "^4.0.0",
     "url-loader": "^0.5.8",
     "vue-loader": "^11.1.4",
     "vue-style-loader": "^2.0.3",

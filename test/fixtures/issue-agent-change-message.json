@@ -1,0 +1,30 @@
+{
+  "id": "0b7c999e-e9cb-467f-b0c4-f518dfdae22b",
+  "type": "Conecta::IssueChangeMessage",
+  "created_on": "2017-03-07T16:56:36Z",
+  "issue": {
+    "id": "ef821c83-6169-4c15-aeb5-cf4cccd9fbc7"
+  },
+  "person": null,
+  "agent": {
+    "id": "83d2c15c-e495-4f7d-9f29-971974d5f03c",
+    "name": "Milan Becker",
+    "dni": "00000000T",
+    "role": "admin",
+    "email": "kacie@schusterhaley.io",
+    "phone": "1-583-028-9438",
+    "mobile": "906.467.4981",
+    "default_group_id": "f44001dd-573d-4272-a636-ec023cbfc49f",
+    "legal_representative": false,
+    "color": "1",
+    "profile_photo": null,
+    "version": 0
+  },
+  "content": {
+    "change": "assigned",
+    "assigned_to_agent_id": "5fe206e0-a336-4a3a-95fa-0adb39e2e4cc"
+  },
+  "attachments": [],
+  "status": "unread",
+  "lock_version": 0
+}

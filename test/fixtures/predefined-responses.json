@@ -1,0 +1,52 @@
+[
+  {
+    "id": 0,
+    "title": "__Predefined_Response_Title__",
+    "content": "__Predefined_Response_Content__",
+    "visible_by_group": {
+      "id": 1,
+      "name": "__Group_Name__"
+    }
+  },
+  {
+    "id": 1,
+    "title": "__Another_Predefined_Response_Title__",
+    "content": "_Another_Predefined_Response_Content__",
+    "visible_by_group": {
+      "id": 2,
+      "name": "__Another_Group_Name__"
+    }
+  },
+  {
+    "id": 2,
+    "title": "__A_Predefined_Response_With_Attachments_Title__",
+    "content": "_Another_Predefined_With_Attachments_Response_Content__",
+    "visible_by_group": {
+      "id": 2,
+      "name": "__Another_Group_Name__"
+    },
+    "attachments": [
+      {
+      "public_file_name": "aFilename.png",
+      "type": "image/png",
+      "file_name": "__A_really_long_backend_UUID__",
+      "size": "888"
+      },
+      {
+        "public_file_name": "anotherFilename.jpg",
+        "type": "image/jpg",
+        "file_name": "__Another_really_long_backend_UUID__",
+        "size": "98765"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "__Last_Predefined_Response_Title__",
+    "content": "__Last_Predefined_Response_Content__",
+    "visible_by_group": {
+      "id": 12,
+      "name": "__Another_Group_Name__"
+    }
+  }
+]

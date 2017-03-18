@@ -1,0 +1,17 @@
+{
+  "created_on": "2016-04-23T18:41:44+02:00",
+  "type": "Conecta::IncomingOutstandingMessage",
+  "person": {
+    "full_name": "Josefina Dávila Caballero"
+  },
+  "content": {
+    "title": "Harry Potter and the Deathly Hallows",
+    "text": "Things we lose have a way of coming back to us in the end",
+    "data_hash": {
+      "Fecha": "2016-04-23T18:41:44+02:00",
+      "Número Registro": "78-068-6351",
+      "Asunto": "Laughter is poison to fear."
+    },
+    "icon_url": "https://image.flaticon.com/icons/svg/126/126516.svg"
+  }
+}

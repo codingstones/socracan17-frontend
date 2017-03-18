@@ -1,0 +1,7 @@
+{
+  "content": {
+    "audio_file_id": "Stored Audio file id"
+  },
+  "created_on": "2016-04-23T18:41:44+02:00",
+  "type": "Conecta::IncomingAudioMessage"
+}

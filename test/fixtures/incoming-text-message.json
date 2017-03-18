@@ -1,0 +1,10 @@
+{
+  "content": {
+    "message" : "A Message"
+  },
+  "person": {
+    "full_name": "Person Name"
+  },
+  "created_on": "2016-04-23T18:41:44+02:00",
+  "type": "Conecta::IncomingTextMessage"
+}

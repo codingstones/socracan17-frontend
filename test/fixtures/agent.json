@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "__SELECTED_AGENT__",
+  "dni": "733066715",
+  "role": "Agente",
+  "email": "emery@welch.biz",
+  "phone": "974 636 509",
+  "mobile": "658632529",
+  "default_group_id": 1
+}
