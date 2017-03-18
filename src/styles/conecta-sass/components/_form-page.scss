@@ -1,0 +1,31 @@
+/*------------------------------------*\
+  $form-page
+\*------------------------------------*/
+
+.page-form {
+  padding:1rem;
+  select, input {
+    font-size: 0.9rem;
+  }
+}
+
+.cancel-link {
+  display: inline-block;
+  vertical-align: middle;
+  padding-bottom: 0.9rem;
+  margin-left:1rem;
+  margin-right:1rem;
+  font-size: 0.9rem;
+  color: $grayDark;
+  &:hover {
+    color:$grayDark !important;
+    text-decoration: underline;
+  }
+}
+
+.new-publication {
+  .file-list {
+    border-left: 1px solid $gray;
+  }
+}
+

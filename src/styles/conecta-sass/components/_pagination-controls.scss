@@ -1,0 +1,17 @@
+/*------------------------------------*\
+  $pagination-controls
+\*------------------------------------*/
+
+pagination-controls {
+  display: block;
+  padding:0.5rem;
+  text-align: center;
+  &  ul {
+    display:inline-block !important;
+    margin-bottom: 0 !important;
+    .current {
+      background-color: $accent-color !important;
+      color: $accent--negative-color !important;
+    }
+  }
+}

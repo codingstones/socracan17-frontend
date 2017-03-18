@@ -1,0 +1,147 @@
+/*------------------------------------*\
+  $chat-panel
+\*------------------------------------*/
+
+.chat-panel {
+  position: fixed;
+  bottom:0;
+  left: $content-nav-width;
+  width: calc(100% - #{$content-nav-width});
+  @media print {
+    display:none;
+  }
+}
+
+.more-notification {
+  text-align: center;
+  margin: 0 0 0.4rem;
+}
+.more-notification__message {
+  display: inline-block;
+  padding: 0 0.5rem;
+  border-radius: 30rem;
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: rgba($black,0.8);
+  color:$white;
+  a {
+    display: block;
+    padding:0.8rem;
+    color:rgba($white,0.8);
+    &:hover {
+      color:rgba($white,1);
+    }
+  }
+  .icon {
+    display: inline-block;
+    position: relative;
+    top: 0.2rem;
+    opacity:0.3;
+  }
+}
+
+.chat-panel__tabs {
+  text-align: right;
+  padding-top: 0.2rem;
+  padding-right: 0.8rem;
+  background-color: $grayLighter;
+  border-top: 1px solid darken($gray, 5);
+  box-shadow: 0 0 4px rgba($black, 0.3);
+  .tab {
+    position: relative;
+    bottom: -0.1rem;
+    display: inline-block;
+    padding:0.4rem 0.8rem;
+    border-radius: $brand-round $brand-round 0 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: lighten($grayDark, 10%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $grayDark;
+    }
+  }
+  .tab--selected {
+    background-color: $white;
+    color: $grayDark;
+    &.tab--intern {
+      background-color: $yellowLighter;
+    }
+  }
+}
+
+.chat-panel__msg {
+  background-color: $grayLighter;
+  padding: 0 0.6rem;
+  textarea {
+    margin-bottom: 0;
+    padding:0.6rem;
+    &.chat--intern {
+      background-color: $yellowLighter;
+    }
+  }
+}
+
+.chat-panel__footer {
+  background-color: $grayLighter;
+  .actions {
+    text-align: right;
+  }
+  .action {
+    position: relative;
+    display: inline-block;
+    padding:0.6rem;
+    cursor:pointer;
+    .icon {
+      font-size: 1.2rem;
+    }
+    &:hover {
+      .icon {
+        opacity:$opacity-over-gray;
+        transition: opacity 0.3s ease;
+      }
+    }
+  }
+  .button {
+    margin-bottom: 0;
+    @include secondaryButton;
+  }
+  .action--loader {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    bottom: 0.2rem;
+    .loader-inner div {
+      background-color:$grayDark;
+
+    }
+  }
+  .action--attachment {
+    padding:0;
+    label {
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+      height:100%;
+      padding:0.6rem;
+    }
+  }
+  .file-list {
+    font-size: 0.9rem;
+  }
+  .file-loader {
+    .progress {
+      width:100%;
+      height:0.2rem;
+      margin-bottom:0;
+    }
+    .progress__bar {
+      width: 0%;
+      height: 100%;
+      background-color: $accent-color;
+      transition: width 1s ease, visibility 3s ease-out;
+    }
+  }
+}

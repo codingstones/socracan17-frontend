@@ -20,41 +20,196 @@
   }
 }
 */
- 
+
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
   speak: none;
- 
+
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
   margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
- 
+
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
- 
+
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
- 
+
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
   margin-left: .2em;
- 
+
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
- 
+
   /* Font smoothing. That was taken from TWBS */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- 
+
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
- 
+
 .icon-github-circled:before { content: '\f09b'; } /* '' */
 .icon-puzzle:before { content: '\f12e'; } /* '' */
+
+//
+// Fonts
+// --------------------------------------------------
+
+// Icomoon variables
+// -------------------------
+
+$icon-channels: "\e913";
+$icon-doubletick: "\e911";
+$icon-tick: "\e912";
+$icon-asterisk: "\e90f";
+$icon-dni: "\e910";
+$icon-bell: "\e90e";
+$icon-bubbles: "\e900";
+$icon-chat: "\e901";
+$icon-check: "\e902";
+$icon-persons: "\e903";
+$icon-clock: "\e904";
+$icon-conecta: "\e905";
+$icon-emoji-sad: "\e906";
+$icon-emoji-smile-mid: "\e907";
+$icon-emoji-smile: "\e908";
+$icon-flag: "\e909";
+$icon-lightbulb: "\e90a";
+$icon-settings: "\e90b";
+$icon-shield: "\e90c";
+$icon-stats: "\e90d";
+
+
+@font-face {
+  font-family: 'conecta-icons';
+  src:
+    url('#{$fontsPath}/conecta-icons.ttf'),
+    url('#{$fontsPath}/conecta-icons.woff'),
+    url('#{$fontsPath}/conecta-icons.svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'conecta-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-channels {
+  &:before {
+    content: $icon-channels;
+  }
+}
+.icon-doubletick {
+  &:before {
+    content: $icon-doubletick;
+  }
+}
+.icon-tick {
+  &:before {
+    content: $icon-tick;
+  }
+}
+.icon-asterisk {
+  &:before {
+    content: $icon-asterisk;
+  }
+}
+.icon-dni {
+  &:before {
+    content: $icon-dni;
+  }
+}
+.icon-bell {
+  &:before {
+    content: $icon-bell;
+  }
+}
+.icon-bubbles {
+  &:before {
+    content: $icon-bubbles;
+  }
+}
+.icon-chat {
+  &:before {
+    content: $icon-chat;
+  }
+}
+.icon-check {
+  &:before {
+    content: $icon-check;
+  }
+}
+.icon-persons {
+  &:before {
+    content: $icon-persons;
+  }
+}
+.icon-clock {
+  &:before {
+    content: $icon-clock;
+  }
+}
+.icon-conecta {
+  &:before {
+    content: $icon-conecta;
+  }
+}
+.icon-emoji-sad {
+  &:before {
+    content: $icon-emoji-sad;
+  }
+}
+.icon-emoji-smile-mid {
+  &:before {
+    content: $icon-emoji-smile-mid;
+  }
+}
+.icon-emoji-smile {
+  &:before {
+    content: $icon-emoji-smile;
+  }
+}
+.icon-flag {
+  &:before {
+    content: $icon-flag;
+  }
+}
+.icon-lightbulb {
+  &:before {
+    content: $icon-lightbulb;
+  }
+}
+.icon-settings {
+  &:before {
+    content: $icon-settings;
+  }
+}
+.icon-shield {
+  &:before {
+    content: $icon-shield;
+  }
+}
+.icon-stats {
+  &:before {
+    content: $icon-stats;
+  }
+}

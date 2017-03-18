@@ -1,0 +1,52 @@
+/*------------------------------------*\
+  $user-menu
+\*------------------------------------*/
+
+.user-menu {
+  float:right;
+  padding:0.6rem;
+  cursor: pointer;
+  .user-avatar {
+    display: inline-block;
+    margin:0 $gutter 0 0;
+    width:rem-calc(38px);
+    height:rem-calc(38px);
+  }
+  .icon {
+    display: inline-block;
+    position: relative;
+    margin:0 -$gutter 0 0;
+    left: -$gutter/2;
+    top: 0.2rem;
+    font-size: 0.6rem;
+    color:$grayDark;
+  }
+  &:hover .icon {
+    color: $accent-color;
+  }
+}
+
+.logout-link {
+  display: inline-block;
+  padding:1rem;
+  font-size:0.8rem;
+  color: $grayDark;
+  &:hover {
+    color:$accent-color;
+  }
+}
+
+.user-dropdown {
+  top: 3.5rem !important;
+  right: $gutter !important;
+  left: auto !important;
+  max-width: 12rem;
+  font-size: 0.8rem;
+  @include dropdown-shadow;
+  a {
+    color: $grayDark;
+    &:hover {
+      color:$accent-color;
+    }
+  }
+}

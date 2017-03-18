@@ -1,0 +1,39 @@
+/*------------------------------------*\
+  $config-channel
+\*------------------------------------*/
+
+.attach-info {
+  display: inline-block;
+  margin-top: 0.8rem;
+  &:hover {
+    text-decoration: underline;
+  }
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+.attach-link {
+  &:hover {
+    text-decoration: underline;
+  }
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.config-channel {
+  .file-list {
+    border-left: 1px solid $gray;
+  }
+  .channel-poster-image {
+    padding:0 0 0 1rem;
+    border-left: 1px solid $gray;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+

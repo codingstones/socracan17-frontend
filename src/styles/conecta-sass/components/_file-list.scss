@@ -1,0 +1,68 @@
+/*------------------------------------*\
+  $file-list
+\*------------------------------------*/
+
+.file-list {
+  div:last-of-type[class*="muted"]{
+    opacity:0.5;
+  }
+  .action--attachment{
+    label {
+      width: auto;
+    }
+  }
+}
+
+.file-list__item {
+  display: inline-block;
+  margin:0.8rem 0.4rem 0;
+  a {
+    .filesize {
+      color: $grayDark;
+    }
+    &:hover {
+      .filename {
+        text-decoration: underline;
+      }
+      .filesize {
+        text-decoration: none;
+      }
+    }
+  }
+  .delete {
+    display: inline-block;
+    padding:0.2em;
+    vertical-align: middle;
+    font-size: 0.9em;
+    color: $grayDark;
+    cursor: pointer;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+  .audio-preview {
+    margin: -1rem 0 1rem -1rem;
+  }
+
+}
+
+.file-list__image {
+  order:-1;
+}
+
+.file-loader {
+  .progress {
+    width:100%;
+    height:0.2rem;
+    margin-bottom:0;
+  }
+  .progress__bar {
+    width: 0%;
+    height: 100%;
+    background-color: $accent-color;
+    transition: width 1s ease, visibility 3s ease-out;
+  }
+  .progress__bar--hidden {
+    visibility: hidden;
+  }
+}

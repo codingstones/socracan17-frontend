@@ -5,7 +5,7 @@
         <h1><a><i class="icon ss-reply" title="Volver"></i></a>&nbsp;{{ msg }}</h1>
       </div>
       <div class="user-avatar"
-           style="background-image:url(../assets/scss/conecta-sass/img/avatar.png);">
+           style="background-image:url(./assets/img/avatar.png);">
       </div>
       <div class="actions">
         <button class="button" @click="retrieveIssues">
@@ -25,6 +25,7 @@
           </div>
           <div class="list-col--priority">
             <i v-if="issue.prioritary" class="icon-flag"></i>
+            <i v-if="issue.prioritary" class="icon-github-circled"></i>
           </div>
           <div class="list-col--id">
             <p>#{{issue.number}}</p>
@@ -67,7 +68,7 @@
     name: 'issues',
     data() {
       return {
-        msg: 'Welcome to Conecta-Vue',
+        msg: 'Welcome to Conecta-Vue11',
         noResults: false,
       };
     },

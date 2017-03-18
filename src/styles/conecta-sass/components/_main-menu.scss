@@ -1,0 +1,66 @@
+/*------------------------------------*\
+  $main-menu
+\*------------------------------------*/
+
+.main-menu {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.main-menu__item {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+  cursor:pointer;
+  position: relative;
+  transition: background-color, 0.3s;
+  &:first-child {
+    padding-right: 1.5rem;
+  }
+  &:hover {
+    background-color: lighten($accent-color, 10);
+  }
+  &.router-link-active {
+    background-color: lighten($accent-color, 10);
+  }
+  &.disabled {
+    opacity: 0.5;
+    cursor:auto;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  i {
+    display:inline-block;
+    vertical-align: middle;
+    font-size: $main-menu-icon-size;
+    color: $white;
+  }
+  span {
+    display:inline-block;
+    text-transform: uppercase;
+    font-size:0.7rem;
+    color: $white;
+  }
+  .noty {
+    position: absolute;
+    top:0.1rem;
+    right:0;
+    background-color: $red;
+    border-radius:300px;
+    color:$white;
+    font-size:0.7rem;
+    text-align: center;
+    padding:0.2rem 0.4rem;
+  }
+}
+.version {
+  flex: 1 0;
+  align-self: flex-end;
+  text-align: right;
+  color: lighten($accent-color, 10);
+  small {
+    display: inline-block;
+    padding: 0.9rem 0.8rem;
+  }
+}

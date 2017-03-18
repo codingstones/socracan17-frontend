@@ -1,0 +1,26 @@
+/*------------------------------------*\
+  $issue-navigation
+\*------------------------------------*/
+
+.issue-navigation {
+  .actions {
+    &.navigation {
+      width:9rem;
+      margin-top: 0.4rem;
+      text-align: right;
+      font-size: 1.6rem;
+      a {
+        color:$text-color;
+        opacity: $opacity-over-gray /3;
+        &:hover {
+          opacity: 1;
+        }
+        &.disabled {
+          opacity: $opacity-over-gray /10;
+          cursor: normal;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
