@@ -14,6 +14,7 @@ import Accordion from '@/components/Accordion';
 import Dropdown from '@/components/Dropdown';
 import Tabs from '@/components/Tabs';
 import Orbit from '@/components/Orbit';
+import Issues from '@/pages/Issues';
 
 Vue.use(Router);
 
@@ -22,6 +23,7 @@ export default new Router({
   routes: [
     // routes
     { name: 'home', path: '/', component: Home },
+    { name: 'issues', path: '/issues', component: Issues },
     { name: 'reveal', path: '/reveal', component: Reveal },
     { name: 'slider', path: '/slider', component: Slider },
     { name: 'tooltip', path: '/tooltip', component: Tooltip },

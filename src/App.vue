@@ -3,6 +3,7 @@
     <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
       <ul class="sidebar-menu" data-close="offCanvas">
         <li><router-link to="/" exact>Home</router-link></li>
+        <li><router-link to="/issues" exact>Issues</router-link></li>
         <li><router-link to="/reveal" exact>Reveal</router-link></li>
         <li><router-link to="/slider" exact>Slider</router-link></li>
         <li><router-link to="/tooltip" exact>Tooltip</router-link></li>
@@ -14,30 +15,34 @@
         <li><router-link to="/dropdown" exact>Dropdown</router-link></li>
         <li><router-link to="/tabs" exact>Tabs</router-link></li>
         <li><router-link to="/orbit" exact>Orbit</router-link></li>
-      </ul>          
+      </ul>
     </div>
     <div class="off-canvas-content" data-off-canvas-content>
       <div class="top-bar">
-        
+
           <ul class="menu expanded">
             <li class="logo">
               <router-link to="/">Vue-Foundation</router-link>
             </li>
             <li><a class="button small menu-button" data-toggle="offCanvas">Menu</a></li>
           </ul>
-        
+
       </div>
       <div class="content-wrapper">
         <router-view></router-view>
       </div>
-    
+
     </div>
   </div>
 </template>
 
 <script>
+import { store } from './vuex/store';
+
 export default {
+
   name: 'app',
+  store,
   mounted() {
     // eslint-disable-next-line
     this.offCanvas = new Foundation.OffCanvas($('#offCanvas'));
@@ -47,10 +52,10 @@ export default {
 
 
 
-<style lang="scss">  
+<style lang="scss">
   @import './styles/global';
-  
-  // Chrome Reset 
+
+  // Chrome Reset
   a:focus {
     outline: none;
   }
@@ -63,7 +68,7 @@ export default {
   li a.menu-button {
     border-radius: 20px;
     padding-left: 1.5rem;
-    padding-right: 1.5rem; 
+    padding-right: 1.5rem;
     font-weight: 600;
     text-transform: uppercase;
     display: inline-block;

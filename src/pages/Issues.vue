@@ -61,23 +61,23 @@
 
 <script>
 
-  import * as Vuex from "vuex";
+  import * as Vuex from 'vuex';
 
   export default {
-  name: 'issues',
-  data () {
-    return {
-      msg: 'Welcome to Conecta-Vue',
-      noResults: false
-    }
-  },
-  methods: {
-      ...Vuex.mapActions(["retrieveIssues", "retrieveIssuesWithError"])
-  },
-  computed: {
-    ...Vuex.mapGetters(["isLoading", "issues", "error"])
-  }
-}
+    name: 'issues',
+    data() {
+      return {
+        msg: 'Welcome to Conecta-Vue',
+        noResults: false,
+      };
+    },
+    methods: {
+      ...Vuex.mapActions(['retrieveIssues', 'retrieveIssuesWithError']),
+    },
+    computed: {
+      ...Vuex.mapGetters(['isLoading', 'issues', 'error']),
+    },
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
