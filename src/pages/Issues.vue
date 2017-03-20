@@ -28,8 +28,8 @@
             <p>#{{issue.number}}</p>
           </div>
           <div class="list-col--title">
-            <p><i class="new" v-if="issue.status == 'new'">Nuevo</i> <a @click="openIssueDetail($event, issue.id)">{{issue.title}}</a></p>
-            <p v-if="issue.parent" class="related">Asunto hijo de <a @click="openIssueDetail($event, issue.parent.id)">#{{issue.parent.number}} <i>{{issue.parent.title}}</i></a></p>
+            <p><i class="new" v-if="issue.status == 'new'">Nuevo</i> <a @click="openIssueDetail(issue.id)">{{issue.title}}</a></p>
+            <p v-if="issue.parent" class="related">Asunto hijo de <a @click="openIssueDetail(issue.parent.id)">#{{issue.parent.number}} <i>{{issue.parent.title}}</i></a></p>
           </div>
           <div class="list-col--last-updated-on">
             <p>
@@ -71,13 +71,13 @@
   export default {
     mixins: [
       // eslint-disable-next-line
-      require('@/mixins/foundation'),
+      //require('@/mixins/foundation'),
     ],
     name: 'issues',
     components: { Spinner },
     data() {
       return {
-        msg: 'Welcome to Conecta-Vue11',
+        msg: 'Welcome to Conecta-Vue1',
         noResults: false,
       };
     },
