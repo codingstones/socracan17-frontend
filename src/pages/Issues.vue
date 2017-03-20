@@ -46,8 +46,14 @@
 
         <div v-if="noResults" class="issue-list__message">No hay resultados</div>
         <spinner></spinner>
-        <div v-if="error" class="issue-list__message">{{error}}</div>
-
+        <div class="reveal" id="exampleModal1" data-reveal>
+          <h1>{{error}}</h1>
+          <p class="lead">{{error}}</p>
+          <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+          <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -63,6 +69,10 @@
 
 
   export default {
+    mixins: [
+      // eslint-disable-next-line
+      require('@/mixins/foundation'),
+    ],
     name: 'issues',
     components: { Spinner },
     data() {

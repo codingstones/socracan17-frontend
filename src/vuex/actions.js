@@ -1,7 +1,5 @@
-import {ConectaApi} from "../services/conecta-api-service.js";
-import {FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS} from "./mutations";
-import {ErrorApi} from "../services/conecta-api-service";
-
+import { ConectaApi, ErrorApi } from '../services/conecta-api-service';
+import { FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS } from './mutations';
 
 // export class CreateIssue {
 //   constructor(conectaApi) {
@@ -16,6 +14,23 @@ import {ErrorApi} from "../services/conecta-api-service";
 //   }
 // }
 
+export class RetrieveIssues {
+  constructor(conectaApi) {
+    this.conectaApi = conectaApi;
+  }
+
+  run = ({ state, commit }) => {
+    commit(FETCH_ISSUE);
+
+    this.conectaApi.retrieveIssues().then((result) => {
+      commit(FETCH_ISSUE_SUCCESS, result);
+    }
+    , (error) => {
+      commit(FETCH_ISSUE_ERROR, error);
+    });
+  };
+}
+
 export function buildRetrieveIssues() {
   const FETCH_LIBRARY = {};
   return new RetrieveIssues(new ConectaApi(FETCH_LIBRARY)).run;
@@ -24,22 +39,4 @@ export function buildRetrieveIssues() {
 export function buildRetrieveIssuesWithError() {
   return new RetrieveIssues(new ErrorApi()).run;
 }
-
-export class RetrieveIssues {
-  constructor(conectaApi) {
-    this.conectaApi = conectaApi;
-  }
-
-  run = ({state, commit, rootState}) => {
-    commit(FETCH_ISSUE);
-
-    this.conectaApi.retrieveIssues().then(result => {
-      commit(FETCH_ISSUE_SUCCESS, result);
-    }
-    , error => {
-      commit(FETCH_ISSUE_ERROR, error);
-    });
-  };
-}
-
 

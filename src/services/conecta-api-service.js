@@ -1,3 +1,4 @@
+import jQuery from 'jquery';
 const mockIssues = require('../../test/fixtures/issues.json');
 
 export class ConectaApi {
@@ -17,6 +18,7 @@ export class ConectaApi {
 
 export class ErrorApi {
   retrieveIssues() {
+    jQuery(document).ready(() => { jQuery('#exampleModal1').foundation('open'); });
     return Promise.reject(new Error('Error de Backend'));
   }
 }
