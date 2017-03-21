@@ -11,6 +11,7 @@ module.exports = {
   entry: {
     app: './vue-config/main.js'
   },
+  devtool: '#inline-cheap-module-source-map',
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',

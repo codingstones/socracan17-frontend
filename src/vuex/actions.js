@@ -19,7 +19,7 @@ export class RetrieveIssues {
     this.conectaApi = conectaApi;
   }
 
-  run = ({ state, commit }) => {
+  run = ({ commit }) => {
     commit(FETCH_ISSUE);
 
     this.conectaApi.retrieveIssues().then((result) => {
