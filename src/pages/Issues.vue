@@ -46,7 +46,7 @@
 
         <div v-if="noResults" class="issue-list__message">No hay resultados</div>
         <spinner></spinner>
-        <div class="reveal" id="exampleModal1" data-reveal>
+        <div class="reveal" id="backendErrorModal" data-reveal>
           <h1>{{error}}</h1>
           <p class="lead">{{error}}</p>
           <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
