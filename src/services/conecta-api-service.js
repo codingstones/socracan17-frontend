@@ -18,7 +18,7 @@ export class ConectaApi {
 
 export class ErrorApi {
   retrieveIssues() {
-    jQuery(document).ready(() => { jQuery('#exampleModal1').foundation('open'); });
+    $(document).ready(() => { $('#exampleModal1').foundation('open'); });
     return Promise.reject(new Error('Error de Backend'));
   }
 }
