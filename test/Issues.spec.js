@@ -3,8 +3,8 @@ import Vuex from 'vuex';
 import avoriaz from 'avoriaz';
 import { mount } from 'avoriaz';
 import { expect } from 'chai';
-import Issues from './Issues';
-import { store } from '../vuex/store';
+import Issues from '../src/pages/Issues';
+import { store } from '../src/vuex/store';
 
 avoriaz.use(Vuex);
 
@@ -23,7 +23,7 @@ describe('Issues.vue', () => {
     expect(wrapper.text()).contains('#ISSUE NUMBER');
   });
 
-  it.only('shows issue list when clicking button to retrieve issues', () => {
+  it('shows issue list when clicking button to retrieve issues', () => {
     const methods = {};
 
     // TODO: Instead of stubbing retrieveIssues method we could use a global Fake Server or even real server with fake data
@@ -41,6 +41,14 @@ describe('Issues.vue', () => {
   it('uses existing actions', () => {
     for (const method of Object.entries(Issues.methods)) {
       if (method[1].name === 'mappedAction') {
+        expect(Object.keys(store._actions).includes(method[0])).eql(true);
+      }
+    }
+  });
+
+  it('uses existing getters', () => {
+    for (const method of Object.entries(Issues.methods)) {
+      if (method[1].name === 'mappedGetter') {
         expect(Object.keys(store._actions).includes(method[0])).eql(true);
       }
     }

@@ -1,5 +1,5 @@
 import { ConectaApi, ErrorApi } from '../services/conecta-api-service';
-import { FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS } from './mutations';
+import { FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS, CREATE_ISSUE, CREATE_ISSUE_ERROR, CREATE_ISSUE_SUCCESS } from './mutations';
 
 // export class CreateIssue {
 //   constructor(conectaApi) {
@@ -39,4 +39,22 @@ export function buildRetrieveIssues() {
 export function buildRetrieveIssuesWithError() {
   return new RetrieveIssues(new ErrorApi()).run;
 }
+
+export class CreateIssue {
+  constructor(conectaApi) {
+    this.conectaApi = conectaApi;
+  }
+
+  run = ({ commit }) => {
+    commit(CREATE_ISSUE);
+
+    this.conectaApi.retrieveIssues().then((result) => {
+        commit(CREATE_ISSUE_SUCCESS, result);
+      }
+      , (error) => {
+        commit(CREATE_ISSUE_ERROR, error);
+      });
+  };
+}
+
 
