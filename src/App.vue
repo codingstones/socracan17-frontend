@@ -37,7 +37,11 @@
 </template>
 
 <script>
+import { sync } from 'vuex-router-sync';
 import { store } from './vuex/store';
+import router from '../vue-config/router';
+
+sync(store, router);
 
 export default {
 

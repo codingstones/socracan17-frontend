@@ -85,7 +85,7 @@
       };
     },
     methods: {
-      ...Vuex.mapActions(['retrieveIssues', 'retrieveIssuesWithError']),
+      ...Vuex.mapActions(['retrieveIssues', 'retrieveIssuesWithError', 'createAnIssue']),
     },
     computed: {
       ...Vuex.mapGetters(['isLoading', 'issues', 'error']),
