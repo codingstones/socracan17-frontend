@@ -2,8 +2,10 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import {
-  buildRetrieveIssues, buildRetrieveIssuesWithError } from './actions';
-import { fetchIssue, fetchIssueError, fetchIssueSuccess } from './mutations';
+  buildCreateAnIssue,
+  buildRetrieveIssues, buildRetrieveIssuesWithError
+} from './actions';
+import {createIssue, createIssueSuccess, fetchIssue, fetchIssueError, fetchIssueSuccess} from './mutations';
 
 
 Vue.config.debug = true;
@@ -17,10 +19,14 @@ export const store = new Vuex.Store({
     FETCH_ISSUE: fetchIssue,
     FETCH_ISSUE_SUCCESS: fetchIssueSuccess,
     FETCH_ISSUE_ERROR: fetchIssueError,
+    CREATE_ISSUE: createIssue,
+    CREATE_ISSUE_SUCCESS: createIssueSuccess,
+    CREATE_ISSUE_ERROR: createIssueSuccess,
   },
   actions: {
     retrieveIssues: buildRetrieveIssues(),
     retrieveIssuesWithError: buildRetrieveIssuesWithError(),
+    createAnIssue: buildCreateAnIssue(),
   },
   getters: {
     issues: state => state.issues,

@@ -11,6 +11,9 @@
         <button class="button" @click="retrieveIssuesWithError">
           Recargar Asuntos con Error
         </button>
+        <button class="button" @click="createAnIssue">
+          Nuevo Asunto
+        </button>
       </div>
     </div>
     <div class="content-panel__scroll" id="issue-list-panel">
