@@ -1,6 +1,10 @@
 <template>
   <div>
-    NUEVO ISSUE
+  NUEVO ISSUE
+  <input type='text'/>
+    <button class="button" @click="createAnIssue">
+      Save Issue
+    </button>
   </div>
 
 </template>
@@ -15,7 +19,7 @@
     ],
     name: 'issue',
     methods: {
-      ...Vuex.mapActions(['createIssue']),
+      ...Vuex.mapActions(['createAnIssue']),
     },
     computed: {
       ...Vuex.mapGetters(['isLoading', 'error']),
