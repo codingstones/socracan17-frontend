@@ -1,11 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import {
-  buildCreateAnIssue,
-  buildRetrieveIssues, buildRetrieveIssuesWithError
-} from './actions';
-import {createIssue, createIssueSuccess, fetchIssue, fetchIssueError, fetchIssueSuccess} from './mutations';
+import { buildCreateAnIssue, buildRetrieveIssues, buildRetrieveIssuesWithError } from './actions';
+import { createIssue, createIssueSuccess, fetchIssue, fetchIssueError, fetchIssueSuccess } from './mutations';
 
 
 Vue.config.debug = true;

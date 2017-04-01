@@ -15,6 +15,7 @@ import Dropdown from '@/components/Dropdown';
 import Tabs from '@/components/Tabs';
 import Orbit from '@/components/Orbit';
 import Issues from '@/pages/Issues';
+import Issue from '@/pages/Issue';
 
 Vue.use(Router);
 
@@ -22,8 +23,9 @@ export default new Router({
   linkActiveClass: 'active',
   routes: [
     // routes
-    { name: 'home', path: '/', component: Home },
+    { name: 'new-issue', path: '/issues/new', component: Issue },
     { name: 'issues', path: '/issues', component: Issues },
+    { name: 'home', path: '/', component: Home },
     { name: 'reveal', path: '/reveal', component: Reveal },
     { name: 'slider', path: '/slider', component: Slider },
     { name: 'tooltip', path: '/tooltip', component: Tooltip },

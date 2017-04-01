@@ -11,9 +11,7 @@
         <button class="button" @click="retrieveIssuesWithError">
           Recargar Asuntos con Error
         </button>
-        <button class="button" @click="createAnIssue">
-          Nuevo Asunto
-        </button>
+        <router-link class="button" :to="{ name: 'new-issue' }">Nuevo Asunto</router-link>
       </div>
     </div>
     <div class="content-panel__scroll" id="issue-list-panel">
@@ -70,7 +68,6 @@
   import * as Vuex from 'vuex';
   import Spinner from '../components/Spinner';
 
-
   export default {
     mixins: [
       // eslint-disable-next-line
@@ -85,7 +82,7 @@
       };
     },
     methods: {
-      ...Vuex.mapActions(['retrieveIssues', 'retrieveIssuesWithError', 'createAnIssue']),
+      ...Vuex.mapActions(['retrieveIssues', 'retrieveIssuesWithError']),
     },
     computed: {
       ...Vuex.mapGetters(['isLoading', 'issues', 'error']),
