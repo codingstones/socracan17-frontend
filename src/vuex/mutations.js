@@ -5,6 +5,7 @@ export const FETCH_ISSUE_ERROR = "FETCH_ISSUE_ERROR";
 export const CREATE_ISSUE = "CREATE_ISSUE";
 export const CREATE_ISSUE_SUCCESS = "CREATE_ISSUE_SUCCESS";
 export const CREATE_ISSUE_ERROR = "CREATE_ISSUE_ERROR";
+export const UPDATE_FORM_FIELD = "UPDATE_FORM_FIELD";
 
 export function fetchIssue(state) {
   state.loading = true;
@@ -32,6 +33,10 @@ export function fetchIssueSuccess(state, issues) {
 export function fetchIssueError(state, error) {
   state.loading = false;
   state.error = error.toString();
+}
+
+export function updateFormField(state, payload) {
+  state.newIssue[payload.field] = payload.value;
 }
 
 

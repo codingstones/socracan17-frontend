@@ -1,5 +1,8 @@
 import { ConectaApi, ErrorApi } from '../services/conecta-api-service';
-import { FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS, CREATE_ISSUE, CREATE_ISSUE_ERROR, CREATE_ISSUE_SUCCESS } from './mutations';
+import {
+  FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS, CREATE_ISSUE,
+  CREATE_ISSUE_ERROR, CREATE_ISSUE_SUCCESS, UPDATE_FORM_FIELD,
+} from './mutations';
 
 const FETCH_LIBRARY = {};
 
@@ -48,5 +51,11 @@ export class CreateIssue {
 
 export function buildCreateAnIssue() {
   return new CreateIssue(new ConectaApi(FETCH_LIBRARY)).run;
+}
+
+export function buildUpdateFormField() {
+  return ({ commit }, payload) => {
+    commit(UPDATE_FORM_FIELD, payload);
+  };
 }
 
