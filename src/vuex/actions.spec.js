@@ -2,7 +2,7 @@
 
 import { sinon, expect, resolvedStub, rejectedStub } from '../../test/utils/test-helpers';
 import { RetrieveIssues, CreateIssue } from './actions';
-import { FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS, CREATE_ISSUE, CREATE_ISSUE_ERROR, CREATE_ISSUE_SUCCESS } from './mutations';
+import { FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS, CREATE_ISSUE, CREATE_ISSUE_SUCCESS } from './mutations';
 
 describe('Issue actions', () => {
   let retrieveIssues, createIssue,
@@ -42,7 +42,7 @@ describe('Issue actions', () => {
     });
   });
 
-  describe('When creataing an issue', () => {
+  describe('When creating an issue', () => {
     let commit,
       state;
     beforeEach(() => {
