@@ -12,8 +12,8 @@
     "upgrade:rm": "rm node_modules -Rf",
     "upgrade:ncu": "npm-check-updates --upgradeAll",
     "upgrade:npm-install": "npm install",
-    "unit": "mocha --compilers js:babel-register --require babel-polyfill --recursive src",
-    "avoriaz": "mocha-webpack --webpack-config build/webpack.base.conf.js src --recursive --require test/.setup.js"
+    "unit": "mocha --compilers js:babel-register --require babel-polyfill --recursive src --ignore **/*.avoriaz.js",
+    "avoriaz": "mocha-webpack --webpack-config build/webpack.base.conf.js test --recursive --require test/.setup.js"
   },
   "dependencies": {
     "foundation-sites": "^6.3.1",
