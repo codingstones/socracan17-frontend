@@ -36,7 +36,9 @@ export function fetchIssueError(state, error) {
 }
 
 export function updateFormField(state, payload) {
+  console.log('Triggering updateFormField', payload.field, payload.value);
   state.newIssue[payload.field] = payload.value;
+  state.issueName = payload.value;
 }
 
 
