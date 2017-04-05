@@ -1,33 +1,36 @@
 <template>
   <div class="content-menu__section no-border">
-    {{ newIssue }}
-    {{$v.text}}
     <div class="row">
       <h3>New Issue</h3>
-      <div class="small-12 columns"
-           :class="{'input-error': $v.newIssue.name.$dirty && $v.newIssue.name.$invalid}">
-        <label>Title
-        <input
-          type="text"
-          :value="newIssue.name"
-          @input="update('name', $event)"
-          placeholder="Name">
-        </label>
+      <div class="small-12 columns">
+        <div :class="{'input-error': $v.newIssue.name.$dirty && $v.newIssue.name.$invalid}">
+          <label>Title
+          <input
+            type="text"
+            :value="newIssue.name"
+            @input="update('name', $event)"
+            placeholder="Name">
+          </label>
+          <span v-if="!$v.newIssue.name.required">Field is required.</span>
+          <span v-if="!$v.newIssue.name.minLength">Field must have at least {{ $v.newIssue.name.$params.minLength.min }} characters.</span>
+        </div>
+        <br>
+        <br>
 
-        <label>Description
-        <input
-          type="text"
-          :value="newIssue.description"
-          @input="update('description', $event)"
-          placeholder="Description">
-        </label>
+        <div :class="{'input-error': $v.newIssue.description.$dirty && $v.newIssue.description.$invalid}">
+          <label>Description
+          <input
+            type="text"
+            :value="newIssue.description"
+            @input="update('description', $event)"
+            placeholder="Description">
+          </label>
+          <span v-if="!$v.newIssue.description.required">Field is required.</span>
+          <span v-if="!$v.newIssue.description.minLength">Field must have at least {{ $v.newIssue.description.$params.minLength.min }} characters.</span>
+        </div>
+        <br>
 
-        <label>Text
-        <input type="text" v-model="text"
-               @input="$v.text.$touch">
-        </label>
-
-        <button class="button small" @click="createAnIssue">
+        <button class="button small" @click="createAnIssue" :disabled="$v.newIssue.$invalid">
           Save Issue
         </button>
       </div>
@@ -64,14 +67,11 @@
       ...Vuex.mapGetters(['isLoading', 'error', 'newIssue']),
     },
     validations: {
-      name: { alpha, minLength: minLength(4) },
-      description: { alpha, minLength: minLength(4) },
-      newIssue: ['name', 'description', 'text'],
-      text: {
-        required,
-        minLength: minLength(5),
-      },
-    },
+      newIssue: {
+        name: { alpha, required, minLength: minLength(5) },
+        description: { alpha, required, minLength: minLength(4) }
+      }
+    }
   };
 </script>
 
