@@ -45,6 +45,31 @@
         </div>
         <br>
 
+        <div :class="{'input-error': $v.newSession.datetime.$dirty && $v.newSession.datetime.$invalid}">
+          <label>Datetime
+          <input
+            type="date"
+            :value="newSession.datetime"
+            @input="update('datetime', $event)"
+            placeholder="Datetime">
+          </label>
+          <span v-if="!$v.newSession.datetime.required">Field is required.</span>
+        </div>
+        <br>
+
+        <div :class="{'input-error': $v.newSession.place.$dirty && $v.newSession.place.$invalid}">
+          <label>Place
+          <input
+            type="text"
+            :value="newSession.place"
+            @input="update('place', $event)"
+            placeholder="Place">
+          </label>
+          <span v-if="!$v.newSession.place.required">Field is required.</span>
+          <span v-if="!$v.newSession.place.minLength">Field must have at least {{ $v.newSession.place.$params.minLength.min }} characters.</span>
+        </div>
+        <br>
+
         <button class="button small" @click="createASession" :disabled="$v.newSession.$invalid">
           Save Session
         </button>
@@ -88,7 +113,9 @@
       newSession: {
         title: { required, minLength: minLength(5) },
         description: { required, minLength: minLength(4) },
-        facilitator: { required, minLength: minLength(4) }
+        facilitator: { required, minLength: minLength(4) },
+        datetime: { required },
+        place: { required, minLength: minLength(4) },
       }
     }
   };

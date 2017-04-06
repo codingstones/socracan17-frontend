@@ -15,7 +15,7 @@ const initialState = {
   sessions: [],
   loading: false,
   error: '',
-  newSession: { id: '1', title: '', description: '', facilitator: '' }
+  newSession: { title: '', description: '', facilitator: '', datetime: '', place: '' }
 };
 
 export const store = new Vuex.Store({
