@@ -1,4 +1,5 @@
-import { ConectaApi, ErrorApi } from '../services/sessions-api-service';
+import { SessionsAPI, ErrorApi } from '../services/sessions-api-service';
+import {HttpClient} from "../services/http-client-service";
 import {
   FETCH_SESSION, FETCH_SESSION_ERROR, FETCH_SESSION_SUCCESS, CREATE_SESSION,
   CREATE_SESSION_ERROR, CREATE_SESSION_SUCCESS, UPDATE_FORM_FIELD,
@@ -7,14 +8,14 @@ import {
 const FETCH_LIBRARY = {};
 
 export class RetrieveSessions {
-  constructor(conectaApi) {
-    this.conectaApi = conectaApi;
+  constructor(sessionsApi) {
+    this.sessionsApi = sessionsApi;
   }
 
   run = ({ commit }) => {
     commit(FETCH_SESSION);
 
-    this.conectaApi.retrieveSessions().then((result) => {
+    this.sessionsApi.retrieveSessions().then((result) => {
       commit(FETCH_SESSION_SUCCESS, result);
     }
     , (error) => {
@@ -24,7 +25,7 @@ export class RetrieveSessions {
 }
 
 export function buildRetrieveSessions() {
-  return new RetrieveSessions(new ConectaApi(FETCH_LIBRARY)).run;
+  return new RetrieveSessions(new SessionsAPI(new HttpClient())).run;
 }
 
 export function buildRetrieveSessionsWithError() {
@@ -55,7 +56,7 @@ export class CreateSession {
 }
 
 export function buildCreateASession() {
-  return new CreateSession(new ConectaApi(FETCH_LIBRARY)).run;
+  return new CreateSession(new SessionsAPI(new HttpClient())).run;
 }
 
 export function buildUpdateFormField() {
