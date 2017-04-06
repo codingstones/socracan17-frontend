@@ -1,9 +1,8 @@
-const mockSessions = require('../../test/fixtures/sessions.json');
+export class SessionsAPI {
 
-export class ConectaApi {
-
-  constructor(fetch) {
-    this.fetch = fetch;
+  constructor(httpClient) {
+    this.httpClient = httpClient;
+    this.servicesUrl = 'http://localhost:4567/services';
   }
 
   retrieveSessions() {
@@ -15,11 +14,17 @@ export class ConectaApi {
   }
 
   createSession(session) {
-    console.log('Creating session', JSON.stringify(session));
     return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve('SESSION CREATED SUCCESSFULLY');
-      }, 1000);
+      this.httpClient.post(this.servicesUrl, JSON.stringify({
+        'jsonrpc': 2.0,
+        'method': 'create_a_new_session',
+        'params': session,
+        'id': 1
+      })).then((response) => {
+        response.json().then((json) => {
+          resolve(json.result);
+        });
+      });
     });
   }
 }
