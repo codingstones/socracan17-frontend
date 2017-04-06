@@ -12,12 +12,16 @@
           Recargar Asuntos con Error
         </button>
         <router-link class="button" :to="{ name: 'new-issue' }">Nuevo Asunto</router-link>
+        <button class="button" @click="sendWebSocketMessage">
+          Send websocket message
+        </button>
       </div>
     </div>
     <div class="content-panel__scroll" id="issue-list-panel">
       <div class="issue-list">
         <div class='issue-list__item' v-bind:class="{ unread: !issue.read }"
              v-for="(issue, index) in issues">
+          ISSUE {{ issue }}
           <div class="list-col--check">
             <input v-model="issue.checked" type="checkbox">
           </div>
@@ -38,7 +42,7 @@
             </p>
           </div>
           <div class="list-col--person">
-            <p>{{issue.person.full_name}}</p>
+            <!--<p v-if="issue.person">{{issue.person.full_name}}</p>-->
           </div>
           <div class="list-col--status">
             Estado
@@ -67,6 +71,9 @@
 <script>
   import * as Vuex from 'vuex';
   import Spinner from '../components/Spinner';
+  import { WebSocketService } from '../services/websocket-service';
+
+  const websocketService = new WebSocketService();
 
   export default {
     mixins: [
@@ -83,6 +90,9 @@
     },
     methods: {
       ...Vuex.mapActions(['retrieveIssues', 'retrieveIssuesWithError']),
+      sendWebSocketMessage() {
+        websocketService.send('AY OMA QUE RICO');
+      }
     },
     computed: {
       ...Vuex.mapGetters(['isLoading', 'issues', 'error']),
