@@ -11,7 +11,11 @@ import {
 Vue.config.debug = true;
 Vue.use(Vuex);
 
-const initialState = { issues: [], loading: false, error: '', newIssue: { name: '', description: '' } };
+const initialState = { issues: [],
+  loading: false,
+  error: '',
+  newIssue: { id: 1, name: '', description: '', person: { full_name: 'Person Name' } }
+};
 
 export const store = new Vuex.Store({
   state: initialState,

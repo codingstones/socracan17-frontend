@@ -1,4 +1,3 @@
-import jQuery from 'jquery';
 const mockIssues = require('../../test/fixtures/issues.json');
 
 export class ConectaApi {
@@ -11,6 +10,15 @@ export class ConectaApi {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(mockIssues);
+      }, 1000);
+    });
+  }
+
+  createIssue(issue) {
+    console.log('Creating issue', JSON.stringify(issue));
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('ISSUE CREATED SUCCESSFULLY');
       }, 1000);
     });
   }

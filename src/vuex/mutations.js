@@ -22,6 +22,7 @@ export function createIssueSuccess(state, issue) {
   state.loading = false;
   state.error = '';
   state.issues.push(issue);
+  //state.newIssue = {};
 }
 
 export function fetchIssueSuccess(state, issues) {
@@ -36,7 +37,6 @@ export function fetchIssueError(state, error) {
 }
 
 export function updateFormField(state, payload) {
-  console.log('Triggering updateFormField', payload.field, payload.value);
   state.newIssue[payload.field] = payload.value;
   state.issueName = payload.value;
 }

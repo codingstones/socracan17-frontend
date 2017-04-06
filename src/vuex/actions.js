@@ -1,4 +1,5 @@
 import { ConectaApi, ErrorApi } from '../services/conecta-api-service';
+import router from '../../vue-config/router';
 import {
   FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS, CREATE_ISSUE,
   CREATE_ISSUE_ERROR, CREATE_ISSUE_SUCCESS, UPDATE_FORM_FIELD,
@@ -31,17 +32,23 @@ export function buildRetrieveIssuesWithError() {
   return new RetrieveIssues(new ErrorApi()).run;
 }
 
+
 export class CreateIssue {
-  constructor(conectaApi) {
+
+  constructor(conectaApi, router) {
     this.conectaApi = conectaApi;
+    this.router = router;
   }
 
-  run = ({ commit }) => {
-    console.log('creating an issue');
+  run = ({ commit, state }) => {
     commit(CREATE_ISSUE);
 
-    this.conectaApi.retrieveIssues().then((result) => {
-      commit(CREATE_ISSUE_SUCCESS, result);
+    console.log('ROUTER', this.router);
+
+    this.conectaApi.createIssue(state.newIssue).then((result) => {
+      commit(CREATE_ISSUE_SUCCESS, JSON.stringify(state.newIssue));
+      this.router.push('/issues');
+      console.log('issues after adding', state.issues);
     }
     , (error) => {
       commit(CREATE_ISSUE_ERROR, error);
@@ -50,7 +57,7 @@ export class CreateIssue {
 }
 
 export function buildCreateAnIssue() {
-  return new CreateIssue(new ConectaApi(FETCH_LIBRARY)).run;
+  return new CreateIssue(new ConectaApi(FETCH_LIBRARY), router).run;
 }
 
 export function buildUpdateFormField() {
