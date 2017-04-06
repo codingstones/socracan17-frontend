@@ -17,7 +17,7 @@
         <div class='issue-list__item' v-bind:class="{ unread: !session.read }"
              v-for="(session, index) in sessions">
           <div class="list-col--id">
-            <p>#{{session.id}}</p>
+            <i class="icon-chat"></i>
           </div>
           <div class="list-col--title">
             <p><a @click="openSessionDetail(session.id)">{{session.title}}</a></p>
@@ -57,6 +57,7 @@
 <script>
   import * as Vuex from 'vuex';
   import Spinner from '../components/Spinner';
+  import SaveButton from '../components/SaveButton';
   import { WebSocketService } from '../services/websocket-service';
 
 
@@ -66,7 +67,7 @@
       require('@/mixins/foundation'),
     ],
     name: 'sessions',
-    components: { Spinner },
+    components: { Spinner, SaveButton },
     methods: {
       ...Vuex.mapActions(['retrieveSessions', 'retrieveSessionsWithError']),
       sendWebSocketMessage() {

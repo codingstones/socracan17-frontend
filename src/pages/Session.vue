@@ -70,9 +70,9 @@
         </div>
         <br>
 
-        <button class="button small" @click="createASession" :disabled="$v.newSession.$invalid">
-          Save Session
-        </button>
+        <save-button title="Save Session" :disabled="$v.newSession.$invalid" @click.native="createASession">
+        </save-button>
+
       </div>
     </div>
   </div>
@@ -83,6 +83,7 @@
   import { validationMixin } from 'vuelidate';
   import { required, minLength } from 'vuelidate/lib/validators';
   import * as Vuex from 'vuex';
+  import SaveButton from '../components/SaveButton';
 
   export default {
     mixins: [
@@ -91,6 +92,7 @@
       validationMixin,
     ],
     name: 'session',
+    components: { SaveButton },
     methods: {
       ...Vuex.mapActions(['updateFormField']),
       createASession() {
