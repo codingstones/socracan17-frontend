@@ -16,7 +16,9 @@
     "avoriaz": "mocha-webpack --webpack-config build/webpack.base.conf.js test --recursive --require test/.setup.js"
   },
   "dependencies": {
+    "es6-promise": "^4.1.0",
     "foundation-sites": "^6.3.1",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.1",
     "motion-ui": "^1.2.2",
     "vue": "^2.2.4",
