@@ -67,7 +67,13 @@
     ],
     name: 'session',
     methods: {
-      ...Vuex.mapActions(['createASession', 'updateFormField']),
+      ...Vuex.mapActions(['updateFormField']),
+      createASession() {
+        console.log('foobar');
+        this.$store.dispatch('createASession').then(() => {
+          this.$router.push('/sessions');
+        });
+      },
       update(field, event) {
         this.$v.newSession[field].$touch();
         this.updateFormField({ field, value: event.target.value.trim() });

@@ -5,12 +5,15 @@ import { FETCH_SESSION, FETCH_SESSION_ERROR, FETCH_SESSION_SUCCESS, CREATE_SESSI
 describe('Session actions', () => {
   let retrieveSessions,
     createSession,
-    sessionsApiStub;
+    sessionsApiStub,
+    createSessionsApiStub;
+
   beforeEach(() => {
     sessionsApiStub = resolvedStub('retrieveSessions', []);
-
     retrieveSessions = new RetrieveSessions(sessionsApiStub);
-    createSession = new CreateSession(sessionsApiStub);
+
+    createSessionsApiStub = resolvedStub('createSession', {});
+    createSession = new CreateSession(createSessionsApiStub);
   });
 
   describe('When retrieving sessions', () => {
@@ -50,10 +53,10 @@ describe('Session actions', () => {
     });
 
     it('finishes with success', () => {
-      createSession.run({ commit, state });
-
-      expect(commit).calledWith(CREATE_SESSION);
-      expect(commit).calledWith(CREATE_SESSION_SUCCESS);
+      return createSession.run({ commit, state }).then(() => {
+        expect(commit).calledWith(CREATE_SESSION);
+        expect(commit).calledWith(CREATE_SESSION_SUCCESS);
+      });
     });
 
     // it('finishes with error', () => {
