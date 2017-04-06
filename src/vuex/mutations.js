@@ -1,44 +1,44 @@
-export const FETCH_ISSUE = "FETCH_ISSUE";
-export const FETCH_ISSUE_SUCCESS = "FETCH_ISSUE_SUCCESS";
-export const FETCH_ISSUE_ERROR = "FETCH_ISSUE_ERROR";
+export const FETCH_SESSION = "FETCH_SESSION";
+export const FETCH_SESSION_SUCCESS = "FETCH_SESSION_SUCCESS";
+export const FETCH_SESSION_ERROR = "FETCH_SESSION_ERROR";
 
-export const CREATE_ISSUE = "CREATE_ISSUE";
-export const CREATE_ISSUE_SUCCESS = "CREATE_ISSUE_SUCCESS";
-export const CREATE_ISSUE_ERROR = "CREATE_ISSUE_ERROR";
+export const CREATE_SESSION = "CREATE_SESSION";
+export const CREATE_SESSION_SUCCESS = "CREATE_SESSION_SUCCESS";
+export const CREATE_SESSION_ERROR = "CREATE_SESSION_ERROR";
 export const UPDATE_FORM_FIELD = "UPDATE_FORM_FIELD";
 
-export function fetchIssue(state) {
+export function fetchSession(state) {
   state.loading = true;
   state.error = '';
-  state.issues = [];
+  state.sessions = [];
 }
 
-export function createIssue(state) {
+export function createSession(state) {
   state.loading = true;
   state.error = '';
 }
 
-export function createIssueSuccess(state, issue) {
+export function createSessionSuccess(state, session) {
   state.loading = false;
   state.error = '';
-  state.issues.push(issue);
-  //state.newIssue = {};
+  state.sessions.push(session);
+  //state.newSession = {};
 }
 
-export function fetchIssueSuccess(state, issues) {
+export function fetchSessionSuccess(state, sessions) {
   state.error = '';
   state.loading = false;
-  state.issues = issues;
+  state.sessions = sessions;
 }
 
-export function fetchIssueError(state, error) {
+export function fetchSessionError(state, error) {
   state.loading = false;
   state.error = error.toString();
 }
 
 export function updateFormField(state, payload) {
-  state.newIssue[payload.field] = payload.value;
-  state.issueName = payload.value;
+  state.newSession[payload.field] = payload.value;
+  state.sessionName = payload.value;
 }
 
 

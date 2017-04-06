@@ -1,39 +1,39 @@
-import { ConectaApi, ErrorApi } from '../services/conecta-api-service';
+import { ConectaApi, ErrorApi } from '../services/sessions-api-service';
 import router from '../../vue-config/router';
 import {
-  FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS, CREATE_ISSUE,
-  CREATE_ISSUE_ERROR, CREATE_ISSUE_SUCCESS, UPDATE_FORM_FIELD,
+  FETCH_SESSION, FETCH_SESSION_ERROR, FETCH_SESSION_SUCCESS, CREATE_SESSION,
+  CREATE_SESSION_ERROR, CREATE_SESSION_SUCCESS, UPDATE_FORM_FIELD,
 } from './mutations';
 
 const FETCH_LIBRARY = {};
 
-export class RetrieveIssues {
+export class RetrieveSessions {
   constructor(conectaApi) {
     this.conectaApi = conectaApi;
   }
 
   run = ({ commit }) => {
-    commit(FETCH_ISSUE);
+    commit(FETCH_SESSION);
 
-    this.conectaApi.retrieveIssues().then((result) => {
-      commit(FETCH_ISSUE_SUCCESS, result);
+    this.conectaApi.retrieveSessions().then((result) => {
+      commit(FETCH_SESSION_SUCCESS, result);
     }
     , (error) => {
-      commit(FETCH_ISSUE_ERROR, error);
+      commit(FETCH_SESSION_ERROR, error);
     });
   };
 }
 
-export function buildRetrieveIssues() {
-  return new RetrieveIssues(new ConectaApi(FETCH_LIBRARY)).run;
+export function buildRetrieveSessions() {
+  return new RetrieveSessions(new ConectaApi(FETCH_LIBRARY)).run;
 }
 
-export function buildRetrieveIssuesWithError() {
-  return new RetrieveIssues(new ErrorApi()).run;
+export function buildRetrieveSessionsWithError() {
+  return new RetrieveSessions(new ErrorApi()).run;
 }
 
 
-export class CreateIssue {
+export class CreateSession {
 
   constructor(conectaApi, router) {
     this.conectaApi = conectaApi;
@@ -41,23 +41,23 @@ export class CreateIssue {
   }
 
   run = ({ commit, state }) => {
-    commit(CREATE_ISSUE);
+    commit(CREATE_SESSION);
 
     console.log('ROUTER', this.router);
 
-    this.conectaApi.createIssue(state.newIssue).then((result) => {
-      commit(CREATE_ISSUE_SUCCESS, JSON.stringify(state.newIssue));
-      this.router.push('/issues');
-      console.log('issues after adding', state.issues);
+    this.conectaApi.createSession(state.newSession).then((result) => {
+      commit(CREATE_SESSION_SUCCESS, JSON.stringify(state.newSession));
+      this.router.push('/sessions');
+      console.log('sessions after adding', state.sessions);
     }
     , (error) => {
-      commit(CREATE_ISSUE_ERROR, error);
+      commit(CREATE_SESSION_ERROR, error);
     });
   };
 }
 
-export function buildCreateAnIssue() {
-  return new CreateIssue(new ConectaApi(FETCH_LIBRARY), router).run;
+export function buildCreateASession() {
+  return new CreateSession(new ConectaApi(FETCH_LIBRARY), router).run;
 }
 
 export function buildUpdateFormField() {

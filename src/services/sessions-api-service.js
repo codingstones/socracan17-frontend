@@ -1,4 +1,4 @@
-const mockIssues = require('../../test/fixtures/issues.json');
+const mockSessions = require('../../test/fixtures/sessions.json');
 
 export class ConectaApi {
 
@@ -6,27 +6,27 @@ export class ConectaApi {
     this.fetch = fetch;
   }
 
-  retrieveIssues() {
+  retrieveSessions() {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(mockIssues);
+        resolve(mockSessions);
       }, 1000);
     });
   }
 
-  createIssue(issue) {
-    console.log('Creating issue', JSON.stringify(issue));
+  createSession(session) {
+    console.log('Creating session', JSON.stringify(session));
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve('ISSUE CREATED SUCCESSFULLY');
+        resolve('SESSION CREATED SUCCESSFULLY');
       }, 1000);
     });
   }
 }
 
 export class ErrorApi {
-  retrieveIssues() {
+  retrieveSessions() {
     $(document).ready(() => { $('#backendErrorModal').foundation('open'); });
-    return Promise.reject(new Error('Error de Backend'));
+    return Promise.reject(new Error('Backend Error'));
   }
 }

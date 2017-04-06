@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { buildCreateAnIssue, buildRetrieveIssues, buildRetrieveIssuesWithError, buildUpdateFormField } from './actions';
+import { buildCreateASession, buildRetrieveSessions, buildRetrieveSessionsWithError, buildUpdateFormField } from './actions';
 import {
-  createIssue, createIssueSuccess, fetchIssue, fetchIssueError, fetchIssueSuccess,
+  createSession, createSessionSuccess, fetchSession, fetchSessionError, fetchSessionSuccess,
   updateFormField
 } from './mutations';
 
@@ -11,34 +11,34 @@ import {
 Vue.config.debug = true;
 Vue.use(Vuex);
 
-const initialState = { issues: [],
+const initialState = { sessions: [],
   loading: false,
   error: '',
-  newIssue: { id: 1, name: '', description: '', person: { full_name: 'Person Name' } }
+  newSession: { id: 1, name: '', description: '', person: { full_name: 'Person Name' } }
 };
 
 export const store = new Vuex.Store({
   state: initialState,
   mutations: {
-    FETCH_ISSUE: fetchIssue,
-    FETCH_ISSUE_SUCCESS: fetchIssueSuccess,
-    FETCH_ISSUE_ERROR: fetchIssueError,
-    CREATE_ISSUE: createIssue,
-    CREATE_ISSUE_SUCCESS: createIssueSuccess,
-    CREATE_ISSUE_ERROR: createIssueSuccess,
+    FETCH_SESSION: fetchSession,
+    FETCH_SESSION_SUCCESS: fetchSessionSuccess,
+    FETCH_SESSION_ERROR: fetchSessionError,
+    CREATE_SESSION: createSession,
+    CREATE_SESSION_SUCCESS: createSessionSuccess,
+    CREATE_SESSION_ERROR: createSessionSuccess,
     UPDATE_FORM_FIELD: updateFormField,
   },
   actions: {
-    retrieveIssues: buildRetrieveIssues(),
-    retrieveIssuesWithError: buildRetrieveIssuesWithError(),
-    createAnIssue: buildCreateAnIssue(),
+    retrieveSessions: buildRetrieveSessions(),
+    retrieveSessionsWithError: buildRetrieveSessionsWithError(),
+    createASession: buildCreateASession(),
     updateFormField: buildUpdateFormField(),
   },
   getters: {
-    issues: state => state.issues,
+    sessions: state => state.sessions,
     isLoading: state => state.loading,
     error: state => state.error,
-    newIssue: state => state.newIssue,
+    newSession: state => state.newSession,
   },
 });
 

@@ -1,39 +1,39 @@
 import { expect } from '../../test/utils/test-helpers';
 import {
-  createIssue, createIssueSuccess, fetchIssue, fetchIssueError, fetchIssueSuccess,
+  createSession, createSessionSuccess, fetchSession, fetchSessionError, fetchSessionSuccess,
 } from './mutations';
 
-describe('Issue mutations', () => {
-  it('fetchIssue', () => {
+describe('Session mutations', () => {
+  it('fetchSession', () => {
     const state = {};
-    fetchIssue(state);
-    expect(state).eql({ loading: true, issues: [], error: '' });
+    fetchSession(state);
+    expect(state).eql({ loading: true, sessions: [], error: '' });
   });
 
-  it('fetchIssueSuccess', () => {
+  it('fetchSessionSuccess', () => {
     const state = {};
-    fetchIssueSuccess(state);
-    expect(state).eql({ loading: false, issues: undefined, error: '' });
+    fetchSessionSuccess(state);
+    expect(state).eql({ loading: false, sessions: undefined, error: '' });
   });
 
-  it('fetchIssueError', () => {
+  it('fetchSessionError', () => {
     const state = {};
-    fetchIssueError(state, Error('any error'));
+    fetchSessionError(state, Error('any error'));
     expect(state).eql({ loading: false, error: 'Error: any error' });
   });
 
 
-  it('createIssue', () => {
+  it('createSession', () => {
     const state = {};
-    createIssue(state);
+    createSession(state);
     expect(state).eql({ loading: true, error: '' });
   });
 
-  it('createIssueSuccess', () => {
-    const state = { issues: [] };
-    const ANY_ISSUE = { id: 'any_id' };
-    createIssueSuccess(state, ANY_ISSUE);
-    expect(state).eql({ loading: false, issues: [ANY_ISSUE], error: '' });
+  it('createSessionSuccess', () => {
+    const state = { sessions: [] };
+    const ANY_SESSION = { id: 'any_id' };
+    createSessionSuccess(state, ANY_SESSION);
+    expect(state).eql({ loading: false, sessions: [ANY_SESSION], error: '' });
   });
 });
 

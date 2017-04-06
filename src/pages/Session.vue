@@ -1,37 +1,37 @@
 <template>
   <div class="content-menu__section no-border">
     <div class="row">
-      <h3>New Issue</h3>
+      <h3>New Session</h3>
       <div class="small-12 columns">
-        <div :class="{'input-error': $v.newIssue.name.$dirty && $v.newIssue.name.$invalid}">
+        <div :class="{'input-error': $v.newSession.name.$dirty && $v.newSession.name.$invalid}">
           <label>Title
           <input
             type="text"
-            :value="newIssue.name"
+            :value="newSession.name"
             @input="update('name', $event)"
             placeholder="Name">
           </label>
-          <span v-if="!$v.newIssue.name.required">Field is required.</span>
-          <span v-if="!$v.newIssue.name.minLength">Field must have at least {{ $v.newIssue.name.$params.minLength.min }} characters.</span>
+          <span v-if="!$v.newSession.name.required">Field is required.</span>
+          <span v-if="!$v.newSession.name.minLength">Field must have at least {{ $v.newSession.name.$params.minLength.min }} characters.</span>
         </div>
         <br>
         <br>
 
-        <div :class="{'input-error': $v.newIssue.description.$dirty && $v.newIssue.description.$invalid}">
+        <div :class="{'input-error': $v.newSession.description.$dirty && $v.newSession.description.$invalid}">
           <label>Description
           <input
             type="text"
-            :value="newIssue.description"
+            :value="newSession.description"
             @input="update('description', $event)"
             placeholder="Description">
           </label>
-          <span v-if="!$v.newIssue.description.required">Field is required.</span>
-          <span v-if="!$v.newIssue.description.minLength">Field must have at least {{ $v.newIssue.description.$params.minLength.min }} characters.</span>
+          <span v-if="!$v.newSession.description.required">Field is required.</span>
+          <span v-if="!$v.newSession.description.minLength">Field must have at least {{ $v.newSession.description.$params.minLength.min }} characters.</span>
         </div>
         <br>
 
-        <button class="button small" @click="createAnIssue" :disabled="$v.newIssue.$invalid">
-          Save Issue
+        <button class="button small" @click="createASession" :disabled="$v.newSession.$invalid">
+          Save Session
         </button>
       </div>
     </div>
@@ -41,7 +41,7 @@
 
 <script>
   import { validationMixin } from 'vuelidate';
-  import { alpha, required, minLength } from 'vuelidate/lib/validators';
+  import { required, minLength } from 'vuelidate/lib/validators';
   import * as Vuex from 'vuex';
 
   export default {
@@ -53,21 +53,21 @@
     data: () => {
       return { text: '' };
     },
-    name: 'issue',
+    name: 'session',
     methods: {
-      ...Vuex.mapActions(['createAnIssue', 'updateFormField']),
+      ...Vuex.mapActions(['createASession', 'updateFormField']),
       update(field, event) {
-        this.$v.newIssue[field].$touch();
+        this.$v.newSession[field].$touch();
         this.updateFormField({ field, value: event.target.value.trim() });
         // EQUIVALENT:
         // this.$store.commit(UPDATE_FORM_FIELD, { field, value: event.target.value.trim() });
       },
     },
     computed: {
-      ...Vuex.mapGetters(['isLoading', 'error', 'newIssue']),
+      ...Vuex.mapGetters(['isLoading', 'error', 'newSession']),
     },
     validations: {
-      newIssue: {
+      newSession: {
         name: { required, minLength: minLength(5) },
         description: { required, minLength: minLength(4) }
       }

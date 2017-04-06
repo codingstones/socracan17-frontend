@@ -2,10 +2,10 @@
   <div>
     <div class="content-panel__header">
       <div class="title">
-        <h1><a><i class="icon ss-reply" title="Volver"></i></a>&nbsp;{{ msg }}</h1>
+        <h1><a><i class="icon ss-reply" title="Back"></i></a>&nbsp;{{ msg }}</h1>
       </div>
       <div class="actions">
-        <router-link class="button" :to="{ name: 'new-issue' }">Nuevo Asunto</router-link>
+        <router-link class="button" :to="{ name: 'new-session' }">New Session</router-link>
         <button class="button" @click="sendWebSocketMessage">
           Send websocket message
         </button>
@@ -13,30 +13,30 @@
     </div>
     <div class="content-panel__scroll" id="issue-list-panel">
       <div class="issue-list">
-        <div class='issue-list__item' v-bind:class="{ unread: !issue.read }"
-             v-for="(issue, index) in issues">
-          ISSUE {{ issue }}
+        <div class='issue-list__item' v-bind:class="{ unread: !session.read }"
+             v-for="(session, index) in sessions">
+          SESSION {{ session }}
           <div class="list-col--check">
-            <input v-model="issue.checked" type="checkbox">
+            <input v-model="session.checked" type="checkbox">
           </div>
           <div class="list-col--priority">
-            <i v-if="issue.prioritary" class="icon-flag"></i>
-            <i v-if="issue.prioritary" class="icon-github-circled"></i>
+            <i v-if="session.prioritary" class="icon-flag"></i>
+            <i v-if="session.prioritary" class="icon-github-circled"></i>
           </div>
           <div class="list-col--id">
-            <p>#{{issue.number}}</p>
+            <p>#{{session.number}}</p>
           </div>
           <div class="list-col--title">
-            <p><i class="new" v-if="issue.status == 'new'">Nuevo</i> <a @click="openIssueDetail(issue.id)">{{issue.title}}</a></p>
-            <p v-if="issue.parent" class="related">Asunto hijo de <a @click="openIssueDetail(issue.parent.id)">#{{issue.parent.number}} <i>{{issue.parent.title}}</i></a></p>
+            <p><i class="new" v-if="session.status == 'new'">Nuevo</i> <a @click="openSessionDetail(session.id)">{{session.title}}</a></p>
+            <p v-if="session.parent" class="related">Asunto hijo de <a @click="openSessionDetail(session.parent.id)">#{{session.parent.number}} <i>{{session.parent.title}}</i></a></p>
           </div>
           <div class="list-col--last-updated-on">
             <p>
-              <span class="date" :title="issue.last_updated_on">{{issue.last_updated_on}}</span>
+              <span class="date" :title="session.last_updated_on">{{session.last_updated_on}}</span>
             </p>
           </div>
           <div class="list-col--person">
-            <!--<p v-if="issue.person">{{issue.person.full_name}}</p>-->
+            <!--<p v-if="session.person">{{session.person.full_name}}</p>-->
           </div>
           <div class="list-col--status">
             Estado
@@ -74,7 +74,7 @@
       // eslint-disable-next-line
       require('@/mixins/foundation'),
     ],
-    name: 'issues',
+    name: 'sessions',
     components: { Spinner },
     data() {
       return {
@@ -83,16 +83,16 @@
       };
     },
     methods: {
-      ...Vuex.mapActions(['retrieveIssues', 'retrieveIssuesWithError']),
+      ...Vuex.mapActions(['retrieveSessions', 'retrieveSessionsWithError']),
       sendWebSocketMessage() {
         websocketService.send('AY OMA QUE RICO');
       }
     },
     computed: {
-      ...Vuex.mapGetters(['isLoading', 'issues', 'error']),
+      ...Vuex.mapGetters(['isLoading', 'sessions', 'error']),
     },
     created() {
-      this.retrieveIssues();
+      this.retrieveSessions();
     }
   };
 </script>

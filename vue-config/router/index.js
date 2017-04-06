@@ -14,8 +14,8 @@ import Accordion from '@/components/Accordion';
 import Dropdown from '@/components/Dropdown';
 import Tabs from '@/components/Tabs';
 import Orbit from '@/components/Orbit';
-import Issues from '@/pages/Issues';
-import Issue from '@/pages/Issue';
+import Sessions from '@/pages/Sessions';
+import Session from '@/pages/Session';
 
 Vue.use(Router);
 
@@ -23,8 +23,8 @@ export default new Router({
   linkActiveClass: 'active',
   routes: [
     // routes
-    { name: 'new-issue', path: '/issues/new', component: Issue },
-    { name: 'issues', path: '/issues', component: Issues },
+    { name: 'new-session', path: '/sessions/new', component: Session },
+    { name: 'sessions', path: '/sessions', component: Sessions },
     { name: 'home', path: '/', component: Home },
     { name: 'reveal', path: '/reveal', component: Reveal },
     { name: 'slider', path: '/slider', component: Slider },

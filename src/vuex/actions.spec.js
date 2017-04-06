@@ -1,20 +1,19 @@
-
-
 import { sinon, expect, resolvedStub, rejectedStub } from '../../test/utils/test-helpers';
-import { RetrieveIssues, CreateIssue } from './actions';
-import { FETCH_ISSUE, FETCH_ISSUE_ERROR, FETCH_ISSUE_SUCCESS, CREATE_ISSUE, CREATE_ISSUE_SUCCESS } from './mutations';
+import { RetrieveSessions, CreateSession } from './actions';
+import { FETCH_SESSION, FETCH_SESSION_ERROR, FETCH_SESSION_SUCCESS, CREATE_SESSION, CREATE_SESSION_SUCCESS } from './mutations';
 
-describe('Issue actions', () => {
-  let retrieveIssues, createIssue,
-    conectaApiStub;
+describe('Session actions', () => {
+  let retrieveSessions,
+    createSession,
+    sessionsApiStub;
   beforeEach(() => {
-    conectaApiStub = resolvedStub('retrieveIssues', []);
+    sessionsApiStub = resolvedStub('retrieveSessions', []);
 
-    retrieveIssues = new RetrieveIssues(conectaApiStub);
-    createIssue = new CreateIssue(conectaApiStub);
+    retrieveSessions = new RetrieveSessions(sessionsApiStub);
+    createSession = new CreateSession(sessionsApiStub);
   });
 
-  describe('When retrieving issues', () => {
+  describe('When retrieving sessions', () => {
     let commit,
       state;
     beforeEach(() => {
@@ -23,26 +22,26 @@ describe('Issue actions', () => {
     });
 
     it('finishes with success', () => {
-      retrieveIssues.run({ commit, state });
+      retrieveSessions.run({ commit, state });
 
-      expect(commit).calledWith(FETCH_ISSUE);
-      expect(commit).calledWith(FETCH_ISSUE_SUCCESS);
+      expect(commit).calledWith(FETCH_SESSION);
+      expect(commit).calledWith(FETCH_SESSION_SUCCESS);
     });
 
     it('finishes with error', () => {
       const backendError = Error('Backend Error');
-      conectaApiStub = rejectedStub('retrieveIssues', backendError);
+      sessionsApiStub = rejectedStub('retrieveSessions', backendError);
 
-      retrieveIssues = new RetrieveIssues(conectaApiStub);
+      retrieveSessions = new RetrieveSessions(sessionsApiStub);
 
-      retrieveIssues.run({ commit, state });
+      retrieveSessions.run({ commit, state });
 
-      expect(commit).calledWith(FETCH_ISSUE);
-      expect(commit).calledWith(FETCH_ISSUE_ERROR, backendError);
+      expect(commit).calledWith(FETCH_SESSION);
+      expect(commit).calledWith(FETCH_SESSION_ERROR, backendError);
     });
   });
 
-  describe('When creating an issue', () => {
+  describe('When creating a session', () => {
     let commit,
       state;
     beforeEach(() => {
@@ -51,22 +50,22 @@ describe('Issue actions', () => {
     });
 
     it('finishes with success', () => {
-      createIssue.run({ commit, state });
+      createSession.run({ commit, state });
 
-      expect(commit).calledWith(CREATE_ISSUE);
-      expect(commit).calledWith(CREATE_ISSUE_SUCCESS);
+      expect(commit).calledWith(CREATE_SESSION);
+      expect(commit).calledWith(CREATE_SESSION_SUCCESS);
     });
 
     // it('finishes with error', () => {
     //   const backendError = Error('Backend Error');
-    //   conectaApiStub = rejectedStub('retrieveIssues', backendError);
+    //   sessionsApiStub = rejectedStub('retrieveSessions', backendError);
     //
-    //   retrieveIssues = new RetrieveIssues(conectaApiStub);
+    //   retrieveSessions = new RetrieveSessions(sessionsApiStub);
     //
-    //   retrieveIssues.run({ commit, state });
+    //   retrieveSessions.run({ commit, state });
     //
-    //   expect(commit).calledWith(FETCH_ISSUE);
-    //   expect(commit).calledWith(FETCH_ISSUE_ERROR, backendError);
+    //   expect(commit).calledWith(FETCH_SESSION);
+    //   expect(commit).calledWith(FETCH_SESSION_ERROR, backendError);
     // });
   });
 });
