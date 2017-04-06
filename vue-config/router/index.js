@@ -2,18 +2,18 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 // Components
-import Home from '@/components/Home';
-import Reveal from '@/components/Reveal';
-import Slider from '@/components/Slider';
-import Tooltip from '@/components/Tooltip';
-import DropdownMenu from '@/components/DropdownMenu';
-import DrilldownMenu from '@/components/DrilldownMenu';
-import AccordionMenu from '@/components/AccordionMenu';
-import Magellan from '@/components/Magellan';
-import Accordion from '@/components/Accordion';
-import Dropdown from '@/components/Dropdown';
-import Tabs from '@/components/Tabs';
-import Orbit from '@/components/Orbit';
+import Home from '@/components/foundation/Home';
+import Reveal from '@/components/foundation/Reveal';
+import Slider from '@/components/foundation/Slider';
+import Tooltip from '@/components/foundation/Tooltip';
+import DropdownMenu from '@/components/foundation/DropdownMenu';
+import DrilldownMenu from '@/components/foundation/DrilldownMenu';
+import AccordionMenu from '@/components/foundation/AccordionMenu';
+import Magellan from '@/components/foundation/Magellan';
+import Accordion from '@/components/foundation/Accordion';
+import Dropdown from '@/components/foundation/Dropdown';
+import Tabs from '@/components/foundation/Tabs';
+import Orbit from '@/components/foundation/Orbit';
 import Sessions from '@/pages/Sessions';
 import Session from '@/pages/Session';
 

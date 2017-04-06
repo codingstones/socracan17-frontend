@@ -7,19 +7,19 @@
           <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
           <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
           <li class="is-active orbit-slide">
-            <img class="orbit-image" src="../assets/img/orbit/01.jpg" alt="Space">
+            <img class="orbit-image" src="../../assets/img/orbit/01.jpg" alt="Space">
             <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="../assets/img/orbit/02.jpg" alt="Space">
+            <img class="orbit-image" src="../../assets/img/orbit/02.jpg" alt="Space">
             <figcaption class="orbit-caption">Lets Rocket!</figcaption>
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="../assets/img/orbit/03.jpg" alt="Space">
+            <img class="orbit-image" src="../../assets/img/orbit/03.jpg" alt="Space">
             <figcaption class="orbit-caption">Encapsulating</figcaption>
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="../assets/img/orbit/04.jpg" alt="Space">
+            <img class="orbit-image" src="../../assets/img/orbit/04.jpg" alt="Space">
             <figcaption class="orbit-caption">Outta This World</figcaption>
           </li>
         </ul>
@@ -29,7 +29,7 @@
           <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
           <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
         </nav>
-      </div>    
+      </div>
     </div>
   </div>
 </template>
