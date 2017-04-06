@@ -68,8 +68,8 @@
     },
     validations: {
       newIssue: {
-        name: { alpha, required, minLength: minLength(5) },
-        description: { alpha, required, minLength: minLength(4) }
+        name: { required, minLength: minLength(5) },
+        description: { required, minLength: minLength(4) }
       }
     }
   };
