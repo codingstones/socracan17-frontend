@@ -11,10 +11,11 @@ import {
 Vue.config.debug = true;
 Vue.use(Vuex);
 
-const initialState = { sessions: [],
+const initialState = {
+  sessions: [],
   loading: false,
   error: '',
-  newSession: { id: 1, name: '', description: '', person: { full_name: 'Person Name' } }
+  newSession: { id: '1', title: '', description: '', facilitator: '' }
 };
 
 export const store = new Vuex.Store({

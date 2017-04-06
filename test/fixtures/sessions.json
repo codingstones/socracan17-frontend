@@ -1,82 +1,23 @@
 [
   {
-    "id": "95670",
-    "number": "2",
-    "title": "Burning Road",
-    "last_updated_on": "2015-03-24T10:05:23Z",
-    "created_on": "2015-03-24T10:05:23Z",
-    "person": {
-      "full_name": "Darth Caedus"
-    },
-    "status": "waiting",
-    "prioritary": false,
-    "read": false,
-    "reminder": "2016-04-28",
-    "category": {
-      "id": "2"
-    },
-    "survey": "null",
-    "group": {
-      "id": "4"
-    },
-    "agent": {
-      "id": "41"
-    },
-    "parent": null,
-    "has_children": true
-  },
-  {
     "id": "123456",
-    "number": "31",
-    "title": "Katastrofen",
-    "last_updated_on": "2015-03-24T10:05:23Z",
-    "created_on": "2015-03-23T10:05:23Z",
-    "person": {
-      "full_name": "Benito Perez"
-    },
-    "status": "new",
-    "survey": "null",
-    "prioritary": true,
+    "title": "TDD",
+    "description": "TDD by Example",
+    "facilitator": "Kent Beck",
+    "time": "10:00",
+    "status": "closed",
     "read": false,
-    "reminder": "2016-04-28",
-    "category": {
-      "id": "3"
-    },
-    "group": {
-    "id": "5"
-    },
-    "agent": {
-      "id": "51"
-    },
-    "parent": {
-      "id": "parent id",
-      "title": "parent title"
-    },
-    "has_children": false
+    "place": "Room 3"
   },
   {
     "id": "98765",
-    "number": "45",
-    "title": "Vecindario enfurecido",
-    "last_updated_on": "2015-03-24T10:05:23Z",
+    "title": "Unit Of Work",
+    "facilitator": "Martin Fowler",
+    "description": "DB stuff",
+    "time": "11:00",
     "created_on": "2010-03-01T10:05:23Z",
-    "person": {
-      "full_name": "Señor Flanders"
-    },
     "status": "closed",
-    "survey": "2",
-    "prioritary": false,
-    "read": false,
-    "category": {
-      "id": "4"
-    },
-    "group": {
-      "id": "6"
-    },
-    "agent": {
-      "id": "61"
-    },
-    "parent": null,
-    "has_children": true
+    "read": true,
+    "place": "Hotel Bar"
   }
 ]

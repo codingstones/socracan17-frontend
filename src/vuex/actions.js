@@ -43,10 +43,8 @@ export class CreateSession {
   run = ({ commit, state }) => {
     commit(CREATE_SESSION);
 
-    console.log('ROUTER', this.router);
-
-    this.conectaApi.createSession(state.newSession).then((result) => {
-      commit(CREATE_SESSION_SUCCESS, JSON.stringify(state.newSession));
+      this.conectaApi.createSession(state.newSession).then((result) => {
+      commit(CREATE_SESSION_SUCCESS, state.newSession);
       this.router.push('/sessions');
       console.log('sessions after adding', state.sessions);
     }

@@ -1,8 +1,0 @@
-[
-  {"id": 1, "name": "Quejas y sugerencias", "created_on": "2016-06-06 12:12:06", "agent_count": 13},
-  {"id": 2, "name": "Servicios sociales",   "created_on": "2016-06-06 12:12:06", "agent_count":  3},
-  {"id": 3, "name": "Jardinería",           "created_on": "2016-06-06 12:12:06", "agent_count": 24},
-  {"id": 4, "name": "Quejas y sugerencias", "created_on": "2016-06-06 12:12:06", "agent_count": 13},
-  {"id": 5, "name": "Servicios sociales",   "created_on": "2016-03-06 12:12:06", "agent_count":  3},
-  {"id": 6, "name": "Jardinería",           "created_on": "2015-06-06 12:12:06", "agent_count": 24}
-]

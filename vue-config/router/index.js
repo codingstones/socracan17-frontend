@@ -23,9 +23,10 @@ export default new Router({
   linkActiveClass: 'active',
   routes: [
     // routes
+    { name: 'home', path: '/', component: Sessions },
     { name: 'new-session', path: '/sessions/new', component: Session },
     { name: 'sessions', path: '/sessions', component: Sessions },
-    { name: 'home', path: '/', component: Home },
+
     { name: 'reveal', path: '/reveal', component: Reveal },
     { name: 'slider', path: '/slider', component: Slider },
     { name: 'tooltip', path: '/tooltip', component: Tooltip },

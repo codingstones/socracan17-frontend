@@ -3,17 +3,18 @@
     <div class="row">
       <h3>New Session</h3>
       <div class="small-12 columns">
-        <div :class="{'input-error': $v.newSession.name.$dirty && $v.newSession.name.$invalid}">
+        <div :class="{'input-error': $v.newSession.title.$dirty && $v.newSession.title.$invalid}">
           <label>Title
           <input
             type="text"
-            :value="newSession.name"
-            @input="update('name', $event)"
+            :value="newSession.title"
+            @input="update('title', $event)"
             placeholder="Name">
           </label>
-          <span v-if="!$v.newSession.name.required">Field is required.</span>
-          <span v-if="!$v.newSession.name.minLength">Field must have at least {{ $v.newSession.name.$params.minLength.min }} characters.</span>
+          <span v-if="!$v.newSession.title.required">Field is required.</span>
+          <span v-if="!$v.newSession.title.minLength">Field must have at least {{ $v.newSession.title.$params.minLength.min }} characters.</span>
         </div>
+
         <br>
         <br>
 
@@ -27,6 +28,20 @@
           </label>
           <span v-if="!$v.newSession.description.required">Field is required.</span>
           <span v-if="!$v.newSession.description.minLength">Field must have at least {{ $v.newSession.description.$params.minLength.min }} characters.</span>
+        </div>
+        <br>
+        <br>
+
+        <div :class="{'input-error': $v.newSession.facilitator.$dirty && $v.newSession.facilitator.$invalid}">
+          <label>Facilitator
+          <input
+            type="text"
+            :value="newSession.facilitator"
+            @input="update('facilitator', $event)"
+            placeholder="Facilitator">
+          </label>
+          <span v-if="!$v.newSession.facilitator.required">Field is required.</span>
+          <span v-if="!$v.newSession.facilitator.minLength">Field must have at least {{ $v.newSession.facilitator.$params.minLength.min }} characters.</span>
         </div>
         <br>
 
@@ -50,9 +65,6 @@
       require('@/mixins/foundation'),
       validationMixin,
     ],
-    data: () => {
-      return { text: '' };
-    },
     name: 'session',
     methods: {
       ...Vuex.mapActions(['createASession', 'updateFormField']),
@@ -68,8 +80,9 @@
     },
     validations: {
       newSession: {
-        name: { required, minLength: minLength(5) },
-        description: { required, minLength: minLength(4) }
+        title: { required, minLength: minLength(5) },
+        description: { required, minLength: minLength(4) },
+        facilitator: { required, minLength: minLength(4) }
       }
     }
   };
