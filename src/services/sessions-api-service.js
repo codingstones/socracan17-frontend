@@ -7,24 +7,34 @@ export class SessionsAPI {
 
   retrieveSessions() {
     return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(mockSessions);
-      }, 1000);
+      this.httpClient.post(
+        this.servicesUrl, this._build_jsonrpc_request_body('retrieve_all_sessions', {})
+      ).then((response) => {
+        response.json().then((json) => {
+          resolve(json.result);
+        });
+      });
     });
   }
 
   createSession(session) {
     return new Promise((resolve) => {
-      this.httpClient.post(this.servicesUrl, JSON.stringify({
-        'jsonrpc': 2.0,
-        'method': 'create_a_new_session',
-        'params': session,
-        'id': 1
-      })).then((response) => {
+      this.httpClient.post(
+        this.servicesUrl, this._build_jsonrpc_request_body('create_a_new_session', session)
+      ).then((response) => {
         response.json().then((json) => {
           resolve(json.result);
         });
       });
+    });
+  }
+
+  _build_jsonrpc_request_body(method, params) {
+    return JSON.stringify({
+      'jsonrpc': "2.0",
+      'method': method,
+      'params': params,
+      'id': 20
     });
   }
 }

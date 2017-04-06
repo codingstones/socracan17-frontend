@@ -26,4 +26,10 @@ describe('Sessions API client service', () => {
       expect(session.place).eql(place);
     });
   });
+
+  it('retrieves all sessions', () => {
+    return sessionsAPI.retrieveSessions().then((sessions) => {
+      expect(sessions.length).above(0);
+    });
+  });
 });
