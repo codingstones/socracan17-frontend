@@ -5,12 +5,6 @@
         <h1><a><i class="icon ss-reply" title="Volver"></i></a>&nbsp;{{ msg }}</h1>
       </div>
       <div class="actions">
-        <button class="button" @click="retrieveIssues">
-          Recargar Asuntos
-        </button>
-        <button class="button" @click="retrieveIssuesWithError">
-          Recargar Asuntos con Error
-        </button>
         <router-link class="button" :to="{ name: 'new-issue' }">Nuevo Asunto</router-link>
         <button class="button" @click="sendWebSocketMessage">
           Send websocket message
@@ -97,6 +91,9 @@
     computed: {
       ...Vuex.mapGetters(['isLoading', 'issues', 'error']),
     },
+    created() {
+      this.retrieveIssues();
+    }
   };
 </script>
 
