@@ -2,12 +2,15 @@ import { sinon, expect, resolvedStub, rejectedStub } from '../../test/utils/test
 import {HttpClient} from "./http-client-service";
 
 describe('Http client service', () => {
+  it('calls a post request to an uri', () => {
+    let httpClient = new HttpClient();
 
-  it('calls spotify', (done) => {
-    const httpClient = new HttpClient();
-    httpClient.post().then((response) => {
-      console.log(response);
-      done();
+    return httpClient.post('http://localhost:4567/services', JSON.stringify({
+      'jsonrpc': 2.0,
+      'method': 'retrieve_all_sessions',
+      'params':  {}
+    })).then((response) => {
+      expect(response.status).eql(200);
     });
   });
 });
