@@ -22,7 +22,7 @@
 
           <ul class="menu expanded">
             <li class="logo">
-              <router-link to="/">Socracan 2017</router-link>
+              <h2><router-link to="/">Socracan 2017</router-link></h2>
             </li>
             <li><a class="button small menu-button" data-toggle="offCanvas">Menu</a></li>
           </ul>

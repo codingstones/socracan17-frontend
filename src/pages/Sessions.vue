@@ -2,10 +2,10 @@
   <div>
     <div class="content-panel__header">
       <div class="title">
-        <h1><a><i class="icon ss-reply" title="Back"></i></a>&nbsp;SESSIONS</h1>
+        <h3>SESSIONS</h3>
       </div>
       <div class="actions">
-        <router-link class="button" :to="{ name: 'new-session' }">New Session</router-link>
+        <router-link id='new-session' class="button" :to="{ name: 'new-session' }">New Session</router-link>
         <button class="button" @click="sendWebSocketMessage">
           Send websocket message
         </button>
@@ -83,7 +83,6 @@
       ...Vuex.mapGetters(['isLoading', 'sessions', 'error']),
     },
     created() {
-      //let websocketService = new WebSocketService();
       this.retrieveSessions();
     }
   };
