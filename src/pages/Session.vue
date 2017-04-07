@@ -1,7 +1,9 @@
 <template>
   <div class="content-menu__section no-border">
     <div class="row">
-      <h3>New Session</h3>
+      <div class="title">
+        <h2> New Sesion  </h2>
+      </div>
       <div class="small-12 columns">
         <div :class="{'input-error': $v.newSession.title.$dirty && $v.newSession.title.$invalid}">
           <label>Title
@@ -11,13 +13,10 @@
             @input="update('title', $event)"
             placeholder="Name">
           </label>
-          <span v-if="!$v.newSession.title.required">Field is required.</span>
-          <span v-if="!$v.newSession.title.minLength">Field must have at least {{ $v.newSession.title.$params.minLength.min }} characters.</span>
+          <span class="error" v-if="!$v.newSession.title.required">Field is required.</span>
+          <span class="error" v-if="!$v.newSession.title.minLength">Field must have at least {{ $v.newSession.title.$params.minLength.min }} characters.</span>
         </div>
-
         <br>
-        <br>
-
         <div :class="{'input-error': $v.newSession.description.$dirty && $v.newSession.description.$invalid}">
           <label>Description
           <input
@@ -26,12 +25,10 @@
             @input="update('description', $event)"
             placeholder="Description">
           </label>
-          <span v-if="!$v.newSession.description.required">Field is required.</span>
-          <span v-if="!$v.newSession.description.minLength">Field must have at least {{ $v.newSession.description.$params.minLength.min }} characters.</span>
+          <span class="error" v-if="!$v.newSession.description.required">Field is required.</span>
+          <span class="error" v-if="!$v.newSession.description.minLength">Field must have at least {{ $v.newSession.description.$params.minLength.min }} characters.</span>
         </div>
         <br>
-        <br>
-
         <div :class="{'input-error': $v.newSession.facilitator.$dirty && $v.newSession.facilitator.$invalid}">
           <label>Facilitator
           <input
@@ -40,11 +37,10 @@
             @input="update('facilitator', $event)"
             placeholder="Facilitator">
           </label>
-          <span v-if="!$v.newSession.facilitator.required">Field is required.</span>
-          <span v-if="!$v.newSession.facilitator.minLength">Field must have at least {{ $v.newSession.facilitator.$params.minLength.min }} characters.</span>
+          <span class="error" v-if="!$v.newSession.facilitator.required">Field is required.</span>
+          <span class="error" v-if="!$v.newSession.facilitator.minLength">Field must have at least {{ $v.newSession.facilitator.$params.minLength.min }} characters.</span>
         </div>
         <br>
-
         <div :class="{'input-error': $v.newSession.datetime.$dirty && $v.newSession.datetime.$invalid}">
           <label>Datetime
           <input
@@ -53,7 +49,7 @@
             @input="update('datetime', $event)"
             placeholder="Datetime">
           </label>
-          <span v-if="!$v.newSession.datetime.required">Field is required.</span>
+          <span class="error" v-if="!$v.newSession.datetime.required">Field is required.</span>
         </div>
         <br>
 
@@ -65,12 +61,12 @@
             @input="update('place', $event)"
             placeholder="Place">
           </label>
-          <span v-if="!$v.newSession.place.required">Field is required.</span>
-          <span v-if="!$v.newSession.place.minLength">Field must have at least {{ $v.newSession.place.$params.minLength.min }} characters.</span>
+          <span class="error" v-if="!$v.newSession.place.required">Field is required.</span>
+          <span class="error" v-if="!$v.newSession.place.minLength">Field must have at least {{ $v.newSession.place.$params.minLength.min }} characters.</span>
         </div>
         <br>
 
-        <save-button title="Save Session" :disabled="$v.newSession.$invalid" @click.native="createASession">
+        <save-button id='save-button' title="Save Session" :disabled="$v.newSession.$invalid" @click.native="createASession">
         </save-button>
 
       </div>
@@ -96,9 +92,9 @@
     methods: {
       ...Vuex.mapActions(['updateFormField']),
       createASession() {
-        console.log('foobar');
-        this.$store.dispatch('createASession').then(() => {
-          this.$router.push('/sessions');
+        this.$store.dispatch('createASession')
+          .then(() => {
+            this.$router.push('/sessions');
         });
       },
       update(field, event) {
