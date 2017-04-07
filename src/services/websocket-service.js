@@ -25,7 +25,7 @@ export class WebSocketService {
   }
 
   connect() {
-    const websocket = new WebSocket('ws://echo.websocket.org/');
+    let websocket = new WebSocket('ws://localhost:9000/');
     websocket.onopen = onOpen;
     websocket.onmessage = onMessage;
     websocket.onclose = onClose;
@@ -33,6 +33,3 @@ export class WebSocketService {
     return websocket;
   }
 }
-
-
-

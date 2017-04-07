@@ -59,7 +59,6 @@
   import Spinner from '../components/Spinner';
   import { WebSocketService } from '../services/websocket-service';
 
-  const websocketService = new WebSocketService();
 
   export default {
     mixins: [
@@ -71,13 +70,19 @@
     methods: {
       ...Vuex.mapActions(['retrieveSessions', 'retrieveSessionsWithError']),
       sendWebSocketMessage() {
-        websocketService.send('AY OMA QUE RICO');
+        let ws = new WebSocket('ws://localhost:9000');
+        let store = this.$store;
+        ws.onmessage = function(message) {
+          const session = JSON.parse(message.data).data;
+          store.commit("CREATE_SESSION_SUCCESS", session);
+        };
       }
     },
     computed: {
       ...Vuex.mapGetters(['isLoading', 'sessions', 'error']),
     },
     created() {
+      //let websocketService = new WebSocketService();
       this.retrieveSessions();
     }
   };
