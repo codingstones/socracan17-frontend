@@ -8,9 +8,9 @@ export class SessionsAPI {
   retrieveSessions() {
     return new Promise((resolve) => {
       this.httpClient.post(
-        this.servicesUrl, this._build_jsonrpc_request_body('retrieve_all_sessions', {})
+        this.servicesUrl, this._buildJsonrpcRequestBody('retrieve_all_sessions', {})
       ).then((json) => {
-        resolve(json);
+        resolve(json.result);
       });
     });
   }
@@ -18,14 +18,14 @@ export class SessionsAPI {
   createSession(session) {
     return new Promise((resolve) => {
       this.httpClient.post(
-        this.servicesUrl, this._build_jsonrpc_request_body('create_a_new_session', session)
+        this.servicesUrl, this._buildJsonrpcRequestBody('create_a_new_session', session)
       ).then((json) => {
-        resolve(json);
+        resolve(json.result);
       });
     });
   }
 
-  _build_jsonrpc_request_body(method, params) {
+  _buildJsonrpcRequestBody(method, params) {
     return JSON.stringify({
       'jsonrpc': "2.0",
       'method': method,

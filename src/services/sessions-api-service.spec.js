@@ -18,7 +18,7 @@ describe('Sessions API client service', () => {
     const datetime = 'Irrelevant datetime';
     const place = 'Irrelevant place';
 
-    return sessionsAPI.createSession({title, description, facilitator, datetime, place}).then((session) => {
+    return sessionsAPI.createSession({ title, description, facilitator, datetime, place }).then((session) => {
       expect(session.title).eql(title);
       expect(session.description).eql(description);
       expect(session.facilitator).eql(facilitator);
