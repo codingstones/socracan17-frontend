@@ -18,6 +18,11 @@ export function stubFor() {
   }, {});
 }
 
+export function resolvedPromise(promiseResult) {
+  let responseStub = sinon.stub();
+  return responseStub.returnsPromise().resolves(promiseResult);
+}
+
 export function resolvedStub(methodName, promiseResult) {
   //Returns the methodName method stubbed to return a synchronous resolved promise with value promiseResult
   let result = stubFor(methodName);

@@ -15,8 +15,8 @@ export class RetrieveSessions {
   run = ({ commit }) => {
     commit(FETCH_SESSION);
 
-    this.sessionsApi.retrieveSessions().then((result) => {
-      commit(FETCH_SESSION_SUCCESS, result);
+    this.sessionsApi.retrieveSessions().then((sessions) => {
+        commit(FETCH_SESSION_SUCCESS, sessions);
     }
     , (error) => {
       commit(FETCH_SESSION_ERROR, error);
@@ -46,7 +46,6 @@ export class CreateSession {
       this.conectaApi.createSession(state.newSession).then((result) => {
         commit(CREATE_SESSION_SUCCESS, state.newSession);
         resolve();
-        console.log('sessions after adding', state.sessions);
       }, (error) => {
         commit(CREATE_SESSION_ERROR, error);
         reject();

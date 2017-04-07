@@ -1,41 +1,39 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import avoriaz from 'avoriaz';
+import { store } from '../src/vuex/store';
 import { mount } from 'avoriaz';
 import { expect } from 'chai';
 import Sessions from '../src/pages/Sessions';
-import { store } from '../src/vuex/store';
+import router from '../vue-config/router';
 
 avoriaz.use(Vuex);
 
 const mixins = [];
 
 describe('Sessions.vue', () => {
-  it('renders local data', () => {
-    const msg = 'TEST DATA';
-    const wrapper = mount(Sessions, { store, data: { msg } });
-    expect(wrapper.text()).contains('TEST DATA');
-  });
+  describe('When mounting component', () => {
+    let wrapper;
+    const SESSION_TITLE = 'SESSION TITLE';
+    beforeEach(() => {
+      const methods = {};
+      // TODO: Instead of stubbing retrieveSessions method we could use a global Fake Server
+      // or even real server with fake data
+      methods.retrieveSessions = () => {
+        store.state.sessions = [{ title: SESSION_TITLE }];
+      };
+      wrapper = mount(Sessions, { store, mixins, methods, router });
+    });
 
-  it('renders session data', () => {
-    store.state.sessions = [{ number: 'SESSION NUMBER', person: {} }];
-    const wrapper = mount(Sessions, { store });
-    expect(wrapper.text()).contains('#SESSION NUMBER');
-  });
+    it('shows session list', () => {
+      const methods = {};
 
-  it('shows session list when clicking button to retrieve sessions', () => {
-    const methods = {};
+      methods.retrieveSessions = () => {
+        store.state.sessions = [{ title: SESSION_TITLE }];
+      };
 
-    // TODO: Instead of stubbing retrieveSessions method we could use a global Fake Server or even real server with fake data
-    methods.retrieveSessions = () => {
-      store.state.sessions = [{ number: 'SESSION NUMBER', person: {} }];
-    };
-
-    const wrapper = mount(Sessions, { store, mixins, methods });
-    const button = wrapper.find('button')[0];
-
-    button.simulate('click');
-    expect(wrapper.text()).contains('#SESSION NUMBER');
+      expect(wrapper.text()).contains(SESSION_TITLE);
+    });
   });
 
   it('uses existing actions', () => {
