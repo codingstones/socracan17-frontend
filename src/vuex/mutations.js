@@ -40,9 +40,3 @@ export function updateFormField(state, payload) {
   state.newSession[payload.field] = payload.value;
   state.sessionName = payload.value;
 }
-
-
-
-
-
-
