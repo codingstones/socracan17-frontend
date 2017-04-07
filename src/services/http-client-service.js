@@ -7,8 +7,8 @@ export class HttpClient {
       url,
       {
         method: 'POST',
-        body: body,
+        body,
       }
-    );
+    ).then(response => response.json());
   }
 }

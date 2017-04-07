@@ -10,7 +10,7 @@ describe('Http client service', () => {
       'method': 'retrieve_all_sessions',
       'params':  {}
     })).then((response) => {
-      expect(response.status).eql(200);
+      expect(response.result.length).above(0);
     });
   });
 });

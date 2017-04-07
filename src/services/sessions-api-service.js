@@ -9,10 +9,8 @@ export class SessionsAPI {
     return new Promise((resolve) => {
       this.httpClient.post(
         this.servicesUrl, this._build_jsonrpc_request_body('retrieve_all_sessions', {})
-      ).then((response) => {
-        response.json().then((json) => {
-          resolve(json.result);
-        });
+      ).then((json) => {
+        resolve(json);
       });
     });
   }
@@ -21,10 +19,8 @@ export class SessionsAPI {
     return new Promise((resolve) => {
       this.httpClient.post(
         this.servicesUrl, this._build_jsonrpc_request_body('create_a_new_session', session)
-      ).then((response) => {
-        response.json().then((json) => {
-          resolve(json.result);
-        });
+      ).then((json) => {
+        resolve(json);
       });
     });
   }
