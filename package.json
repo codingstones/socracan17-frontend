@@ -13,7 +13,7 @@
     "upgrade:ncu": "npm-check-updates --upgradeAll",
     "upgrade:npm-install": "npm install",
     "unit": "mocha --compilers js:babel-register --require babel-polyfill --recursive src --ignore **/*.avoriaz.js",
-    "avoriaz": "mocha-webpack --webpack-config build/webpack.base.conf.js test --recursive --require test/.setup.js"
+    "avoriaz": "mocha-webpack --webpack-config build/webpack.base.conf.js --watch test --recursive --require test/.setup.js"
   },
   "dependencies": {
     "es6-promise": "^4.1.0",
