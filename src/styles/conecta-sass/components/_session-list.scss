@@ -1,5 +1,5 @@
 /*------------------------------------*\
-  $issue-list
+  $session-list
 \*------------------------------------*/
 
 .search-panel__header {
@@ -21,11 +21,11 @@
   }
 }
 
-.issue-list {
+.session-list {
   font-size: 0.9rem;
 }
 
-.issue-list__item {
+.session-list__item {
   @include flex-grid-row(collapse, $grid-row-width, 16, true, $grid-column-gutter);
   padding-top:1em;
   padding-bottom:1em;
@@ -93,7 +93,7 @@
 }
 .list-col--title {
   @include flex-grid-column();
-  @include issue-list-font-size--large;
+  @include session-list-font-size--large;
   p {
     line-height: 1.2;
     margin-bottom: 0.2rem;
@@ -133,13 +133,13 @@
 .list-col--last-updated-on {
   @include flex-grid-column(2 of 16);
   text-align: center;
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--person {
   @include flex-grid-column(3 of 16);
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
-.list-col--status {
+.list-col--place {
   @include flex-grid-column(2 of 16);
   text-align: center;
   *[class^="icon"]{
@@ -149,36 +149,36 @@
 }
 .list-col--assignation {
   @include flex-grid-column();
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--category {
   @include flex-grid-column();
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--created {
   @include flex-grid-column(2 of 16);
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--set-priority {
   @include flex-grid-column(3 of 16);
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--related {
   @include flex-grid-column(2 of 16);
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--count {
   @include flex-grid-column(3 of 16);
   text-align: center;
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--visibility {
   @include flex-grid-column(3 of 16);
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--user {
   @include flex-grid-column();
-  @include issue-list-font-size--large;
+  @include session-list-font-size--large;
   a {
     color:$black;
     &:hover {
@@ -188,18 +188,18 @@
 }
 .list-col--role {
   @include flex-grid-column(2 of 16);
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--group {
   @include flex-grid-column(3 of 16);
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--email {
   @include flex-grid-column(3);
   & > p {
     @include truncate;
   }
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
   a {
     color:$black;
     &:hover {
@@ -210,11 +210,11 @@
 .list-col--dni, .list-col--tel {
   @include flex-grid-column(2 of 16);
   @include truncate;
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--region {
   @include flex-grid-column(2 of 16);
-  @include issue-list-font-size--small;
+  @include session-list-font-size--small;
 }
 .list-col--delete {
   @include flex-grid-column(1 of 16);
@@ -223,7 +223,7 @@
     color:$grayDark;
   }
 }
-.issue-list__blank {
+.session-list__blank {
   padding: $gutter*3 $gutter;
   overflow: hidden;
   a {
@@ -231,7 +231,7 @@
     text-decoration: underline;
   }
 }
-.issue-list__loader {
+.session-list__loader {
   padding: $gutter*3 $gutter;
   text-align: center;
   .loader-inner {
@@ -241,7 +241,7 @@
     }
   }
 }
-.issue-list__message {
+.session-list__message {
   padding: 1rem 0;
   text-align: center;
 }

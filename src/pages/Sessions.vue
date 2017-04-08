@@ -7,14 +7,14 @@
       <div class="actions">
         <router-link id='new-session' class="button" :to="{ name: 'new-session' }">New Session</router-link>
         <button class="button" @click="connectWebsocket">
-          Send websocket message
+          Connect Websocket
         </button>
       </div>
     </div>
 
-    <div class="content-panel__scroll" id="issue-list-panel">
-      <div class="issue-list">
-        <div class='issue-list__item' v-bind:class="{ unread: !session.read }"
+    <div class="content-panel__scroll" id="session-list-panel">
+      <div class="session-list">
+        <div class='session-list__item' v-bind:class="{ unread: !session.read }"
              v-for="(session, index) in sessions">
           <div class="list-col--id">
             <i class="icon-chat"></i>
@@ -31,7 +31,7 @@
           <div class="list-col--person">
             {{ session.facilitator }}
           </div>
-          <div class="list-col--status">
+          <div class="list-col--place">
             {{ session.place }}
           </div>
         </div>

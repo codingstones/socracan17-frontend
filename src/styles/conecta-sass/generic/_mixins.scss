@@ -63,15 +63,15 @@
   text-overflow: ellipsis;
 }
 
-@mixin issue-list-font-size--small{
+@mixin session-list-font-size--small{
   & > p {
-    font-size: $issue-list-font-size--small;
+    font-size: $session-list-font-size--small;
     margin-bottom: 0;
   }
 }
-@mixin issue-list-font-size--large{
+@mixin session-list-font-size--large{
   & > p {
-    font-size: $issue-list-font-size--large;
+    font-size: $session-list-font-size--large;
     margin-bottom: 0;
   }
 }
