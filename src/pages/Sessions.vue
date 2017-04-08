@@ -6,7 +6,7 @@
       </div>
       <div class="actions">
         <router-link id='new-session' class="button" :to="{ name: 'new-session' }">New Session</router-link>
-        <button class="button" @click="sendWebSocketMessage">
+        <button class="button" @click="connectWebsocket">
           Send websocket message
         </button>
       </div>
@@ -25,7 +25,7 @@
           </div>
           <div class="list-col--last-updated-on">
             <p>
-              <span class="date" :title="session.time">{{session.time}}</span>
+              <span class="date" :title="session.datetime">{{session.datetime}}</span>
             </p>
           </div>
           <div class="list-col--person">
@@ -69,8 +69,8 @@
     name: 'sessions',
     components: { Spinner, SaveButton },
     methods: {
-      ...Vuex.mapActions(['retrieveSessions', 'retrieveSessionsWithError']),
-      sendWebSocketMessage() {
+      ...Vuex.mapActions(['retrieveSessions']),
+      connectWebsocket() {
         let ws = new WebSocket('ws://localhost:9000');
         let store = this.$store;
         ws.onmessage = function(message) {

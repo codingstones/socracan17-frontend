@@ -51,25 +51,4 @@ describe('Sessions.vue', () => {
       }
     }
   });
-
-
-  // it.only('can call methods', () => {
-  //   const wrapper = mount(Sessions, { store });
-  //   console.log(wrapper.methods());
-  //   console.log('ACTIONS', store._actions);
-  //   console.log(wrapper.computed());
-  //   expect(wrapper.methods().map(method => method.apply()));
-  // });
-  //
-  // it('should render', () => {
-  //   const vm = new Vue({
-  //     template: '<div><test></test></div>',
-  //     store,
-  //     components: {
-  //       test: Sessions,
-  //     },
-  //   }).$mount();
-  //
-  //   console.log(vm.methods());
-  // });
 });

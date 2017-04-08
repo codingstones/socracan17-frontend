@@ -15,7 +15,7 @@ describe('Session.vue', () => {
 
   it('navigates to sessions page after creating session', () => {
     let wrapper, routerStub, responseStub;
-    routerStub = stubFor('push');
+    routerStub = stubFor('push', 'init');
 
     store.dispatch = resolvedPromise({});
 

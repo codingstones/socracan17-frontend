@@ -1,7 +1,6 @@
 import 'isomorphic-fetch';
 
 export class HttpClient {
-
   post(url, body) {
     return fetch(
       url,

@@ -27,10 +27,10 @@ export class SessionsAPI {
 
   _buildJsonrpcRequestBody(method, params) {
     return JSON.stringify({
-      'jsonrpc': "2.0",
-      'method': method,
-      'params': params,
-      'id': 20
+      jsonrpc: '2.0',
+      method,
+      params,
+      id: 20
     });
   }
 }
