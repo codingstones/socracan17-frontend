@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { buildCreateASession, buildRetrieveSessions, buildRetrieveSessionsWithError, buildUpdateFormField } from './actions';
+import { buildCreateASession, buildRetrieveSessions, buildUpdateFormField } from './actions';
 import {
-  createSession, createSessionSuccess, fetchSession, fetchSessionError, fetchSessionSuccess,
+  createSession, createSessionSuccess, fetchSessions, fetchSessionsError, fetchSessionsSuccess,
   updateFormField
 } from './mutations';
 
@@ -21,9 +21,9 @@ const initialState = {
 export const store = new Vuex.Store({
   state: initialState,
   mutations: {
-    FETCH_SESSION: fetchSession,
-    FETCH_SESSION_SUCCESS: fetchSessionSuccess,
-    FETCH_SESSION_ERROR: fetchSessionError,
+    FETCH_SESSIONS: fetchSessions,
+    FETCH_SESSIONS_SUCCESS: fetchSessionsSuccess,
+    FETCH_SESSIONS_ERROR: fetchSessionsError,
     CREATE_SESSION: createSession,
     CREATE_SESSION_SUCCESS: createSessionSuccess,
     CREATE_SESSION_ERROR: createSessionSuccess,
@@ -31,7 +31,6 @@ export const store = new Vuex.Store({
   },
   actions: {
     retrieveSessions: buildRetrieveSessions(),
-    retrieveSessionsWithError: buildRetrieveSessionsWithError(),
     createASession: buildCreateASession(),
     updateFormField: buildUpdateFormField(),
   },

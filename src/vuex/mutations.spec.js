@@ -1,24 +1,24 @@
 import { expect } from '../../test/utils/test-helpers';
 import {
-  createSession, createSessionSuccess, fetchSession, fetchSessionError, fetchSessionSuccess,
+  createSession, createSessionSuccess, fetchSessions, fetchSessionsError, fetchSessionsSuccess,
 } from './mutations';
 
 describe('Session mutations', () => {
-  it('fetchSession', () => {
+  it('fetchSessions', () => {
     const state = {};
-    fetchSession(state);
+    fetchSessions(state);
     expect(state).eql({ loading: true, sessions: [], error: '' });
   });
 
-  it('fetchSessionSuccess', () => {
+  it('fetchSessionsSuccess', () => {
     const state = {};
-    fetchSessionSuccess(state);
+    fetchSessionsSuccess(state);
     expect(state).eql({ loading: false, sessions: undefined, error: '' });
   });
 
-  it('fetchSessionError', () => {
+  it('fetchSessionsError', () => {
     const state = {};
-    fetchSessionError(state, Error('any error'));
+    fetchSessionsError(state, Error('any error'));
     expect(state).eql({ loading: false, error: 'Error: any error' });
   });
 
@@ -30,10 +30,15 @@ describe('Session mutations', () => {
   });
 
   it('createSessionSuccess', () => {
-    const state = { sessions: [] };
-    const ANY_SESSION = { id: 'any_id' };
+    const state = { sessions: [] } //, newSession: {} };
+    const ANY_SESSION = { title: 'any_title' };
     createSessionSuccess(state, ANY_SESSION);
-    expect(state).eql({ loading: false, sessions: [ANY_SESSION], error: '' });
+    expect(state).eql({
+      loading: false,
+      //newSession: { title: '', facilitator: '', datetime: '', place: '', description: '' },
+      sessions: [ANY_SESSION],
+      error: ''
+    });
   });
 });
 

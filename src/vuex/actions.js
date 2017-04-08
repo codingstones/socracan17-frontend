@@ -1,11 +1,9 @@
-import { SessionsAPI, ErrorApi } from '../services/sessions-api-service';
-import {HttpClient} from "../services/http-client-service";
+import { SessionsAPI } from '../services/sessions-api-service';
+import { HttpClient } from '../services/http-client-service';
 import {
-  FETCH_SESSION, FETCH_SESSION_ERROR, FETCH_SESSION_SUCCESS, CREATE_SESSION,
+  FETCH_SESSIONS, FETCH_SESSIONS_ERROR, FETCH_SESSIONS_SUCCESS, CREATE_SESSION,
   CREATE_SESSION_ERROR, CREATE_SESSION_SUCCESS, UPDATE_FORM_FIELD,
 } from './mutations';
-
-const FETCH_LIBRARY = {};
 
 export class RetrieveSessions {
   constructor(sessionsApi) {
@@ -13,13 +11,13 @@ export class RetrieveSessions {
   }
 
   run = ({ commit }) => {
-    commit(FETCH_SESSION);
+    commit(FETCH_SESSIONS);
 
     this.sessionsApi.retrieveSessions().then((sessions) => {
-        commit(FETCH_SESSION_SUCCESS, sessions);
+      commit(FETCH_SESSIONS_SUCCESS, sessions);
     }
     , (error) => {
-      commit(FETCH_SESSION_ERROR, error);
+      commit(FETCH_SESSIONS_ERROR, error);
     });
   };
 }
@@ -27,11 +25,6 @@ export class RetrieveSessions {
 export function buildRetrieveSessions() {
   return new RetrieveSessions(new SessionsAPI(new HttpClient())).run;
 }
-
-export function buildRetrieveSessionsWithError() {
-  return new RetrieveSessions(new ErrorApi()).run;
-}
-
 
 export class CreateSession {
 

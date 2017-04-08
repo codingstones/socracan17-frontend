@@ -1,6 +1,6 @@
 import { sinon, expect, resolvedStub, rejectedStub } from '../../test/utils/test-helpers';
 import { RetrieveSessions, CreateSession } from './actions';
-import { FETCH_SESSION, FETCH_SESSION_ERROR, FETCH_SESSION_SUCCESS, CREATE_SESSION, CREATE_SESSION_SUCCESS } from './mutations';
+import { FETCH_SESSIONS, FETCH_SESSIONS_ERROR, FETCH_SESSIONS_SUCCESS, CREATE_SESSION, CREATE_SESSION_SUCCESS, CREATE_SESSION_ERROR } from './mutations';
 
 describe('Session actions', () => {
   let retrieveSessions,
@@ -13,7 +13,6 @@ describe('Session actions', () => {
     retrieveSessions = new RetrieveSessions(sessionsApiStub);
 
     createSessionsApiStub = resolvedStub('createSession', {});
-    createSession = new CreateSession(createSessionsApiStub);
   });
 
   describe('When retrieving sessions', () => {
@@ -27,8 +26,8 @@ describe('Session actions', () => {
     it('finishes with success', () => {
       retrieveSessions.run({ commit, state });
 
-      expect(commit).calledWith(FETCH_SESSION);
-      expect(commit).calledWith(FETCH_SESSION_SUCCESS);
+      expect(commit).calledWith(FETCH_SESSIONS);
+      expect(commit).calledWith(FETCH_SESSIONS_SUCCESS);
     });
 
     it('finishes with error', () => {
@@ -39,8 +38,8 @@ describe('Session actions', () => {
 
       retrieveSessions.run({ commit, state });
 
-      expect(commit).calledWith(FETCH_SESSION);
-      expect(commit).calledWith(FETCH_SESSION_ERROR, backendError);
+      expect(commit).calledWith(FETCH_SESSIONS);
+      expect(commit).calledWith(FETCH_SESSIONS_ERROR, backendError);
     });
   });
 
@@ -48,6 +47,7 @@ describe('Session actions', () => {
     let commit,
       state;
     beforeEach(() => {
+      createSession = new CreateSession(createSessionsApiStub);
       commit = sinon.stub();
       state = {};
     });
@@ -59,17 +59,16 @@ describe('Session actions', () => {
       });
     });
 
-    // it('finishes with error', () => {
-    //   const backendError = Error('Backend Error');
-    //   sessionsApiStub = rejectedStub('retrieveSessions', backendError);
-    //
-    //   retrieveSessions = new RetrieveSessions(sessionsApiStub);
-    //
-    //   retrieveSessions.run({ commit, state });
-    //
-    //   expect(commit).calledWith(FETCH_SESSION);
-    //   expect(commit).calledWith(FETCH_SESSION_ERROR, backendError);
-    // });
+    it('finishes with error', () => {
+      const backendError = Error('Backend Error');
+      createSessionsApiStub = rejectedStub('createSession', backendError);
+      createSession = new CreateSession(createSessionsApiStub);
+
+      createSession.run({ commit, state });
+
+      expect(commit).calledWith(CREATE_SESSION);
+      expect(commit).calledWith(CREATE_SESSION_ERROR, backendError);
+    });
   });
 });
 
