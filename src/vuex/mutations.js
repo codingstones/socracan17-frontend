@@ -22,11 +22,11 @@ export function createSessionSuccess(state, session) {
   state.loading = false;
   state.error = '';
   state.sessions.push(session);
-  // state.newSession.title = '';
-  // state.newSession.description = '';
-  // state.newSession.facilitator = '';
-  // state.newSession.datetime = '';
-  // state.newSession.place = '';
+  state.newSession.title = '';
+  state.newSession.description = '';
+  state.newSession.facilitator = '';
+  state.newSession.datetime = '';
+  state.newSession.place = '';
 }
 
 export function fetchSessionsSuccess(state, sessions) {

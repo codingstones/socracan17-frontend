@@ -30,12 +30,12 @@ describe('Session mutations', () => {
   });
 
   it('createSessionSuccess', () => {
-    const state = { sessions: [] } //, newSession: {} };
+    const state = { sessions: [] , newSession: {} };
     const ANY_SESSION = { title: 'any_title' };
     createSessionSuccess(state, ANY_SESSION);
     expect(state).eql({
       loading: false,
-      //newSession: { title: '', facilitator: '', datetime: '', place: '', description: '' },
+      newSession: { title: '', facilitator: '', datetime: '', place: '', description: '' },
       sessions: [ANY_SESSION],
       error: ''
     });
